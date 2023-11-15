@@ -1,11 +1,35 @@
-body {
+/* FOR MOBILE PHONES */
+
+#intro {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#name {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 8vw;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(31, 31, 31);
-  color: white;
-  overflow-x: hidden;
+}
+
+#title {
+  font-family: "Poppins", sans-serif;
+  font-size: 3vw;
+  margin: 0;
+}
+
+/* FOR TABLETS */
+
+@media only screen and (min-width: 600px) {
+
+}
+
+/* FOR DESKTOP */
+
+@media only screen and (min-width: 768px) {
+
 }

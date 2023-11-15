@@ -3,11 +3,9 @@ import "./index.css"
 
 function HomePage() {
   return (
-    <div>
-      <h1>
-        Hello, I'm <span>Manuel Segarra</span>.<br />
-        I'm a full-stack web developer.
-      </h1>
+    <div id="intro">
+      <p id="name">MANUEL SEGARRA</p>
+      <p id="title">SOFTWARE DEVELOPER, FULL-STACK WEB DEVELOPER</p>
     </div>
   );
 }
