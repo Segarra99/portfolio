@@ -2,6 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
 // Import all the pages
+import Navbar from "./Components/Navbar"
 import AboutPage from "./Pages/About";
 import CertificationsPage from "./Pages/Certifications";
 import ContactPage from "./Pages/Contact";
@@ -13,6 +14,7 @@ import SkillsPage from "./Pages/Skills";
 function App() {
   return (
     <div>
+      <Navbar />
       <Routes>
         <Route path="/about" element={<AboutPage />} />
         <Route path="/certifications" element={<CertificationsPage />} />
