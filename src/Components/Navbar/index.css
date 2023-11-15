@@ -1,0 +1,108 @@
+/* FOR MOBILE PHONES */
+
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  height: 70px;
+  position: fixed;
+  top: 0;
+}
+
+#nav-links {
+  display: none;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 750px;
+  font-size: 20px;
+}
+
+#nav-button {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+#nav-links-burger {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100vh;
+  width: 240px;
+  background-color: rgb(20, 20, 20);
+  padding: 70px 0 0 40px;
+  transition: left 1s ease;
+  left: -280px;
+}
+
+#nav-links-burger.slide-in {
+  left: 0;
+}
+
+#nav-links-burger.slide-out {
+  left: -280px;
+}
+
+#nav-links-burger p {
+  color: white;
+}
+
+.button-icon {
+  position: absolute;
+  border: none;
+  background: none;
+  padding: 0;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.button-icon img {
+  width: 40px;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  text-decoration: none;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+.nav-link p {
+  margin: -2px;
+  font-family: "Roboto Mono", monospace;
+}
+
+.nav-number {
+  font-size: 12px;
+}
+
+/* FOR TABLETS */
+
+@media only screen and (min-width: 600px) {
+
+}
+
+/* FOR DESKTOP */
+
+@media only screen and (min-width: 768px) {
+  nav {
+    justify-content: center;
+  }
+
+  #nav-links {
+    display: flex;
+  }
+
+  #nav-button {
+    display: none;
+  }
+
+  #nav-links-burger {
+    display: none;
+  }
+}
