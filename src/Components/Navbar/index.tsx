@@ -12,19 +12,19 @@ function Navbar() {
     <>
       {hamburgerToggle && (
         <div id="nav-links-burger">
-          <Link to="/" className="nav-link">
+          <Link to="/" className="nav-link" onClick={handleToggle}>
             <p>// home</p>
           </Link>
-          <Link to="/about" className="nav-link">
+          <Link to="/about" className="nav-link" onClick={handleToggle}>
             <p>// about</p>
           </Link>
-          <Link to="/projects" className="nav-link">
+          <Link to="/projects" className="nav-link" onClick={handleToggle}>
             <p>// projects</p>
           </Link>
-          <Link to="/resume" className="nav-link">
+          <Link to="/resume" className="nav-link" onClick={handleToggle}>
             <p>// resume</p>
           </Link>
-          <Link to="/contact" className="nav-link">
+          <Link to="/contact" className="nav-link" onClick={handleToggle}>
             <p>// contact</p>
           </Link>
         </div>

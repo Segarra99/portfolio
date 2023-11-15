@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -9,12 +9,13 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
+/* FOR MOBILE PHONES */
 
-/* for mobile phones */
+/* Navbar */
 nav {
   display: flex;
   justify-content: flex-start;
@@ -64,24 +65,27 @@ nav {
 
 .nav-link p {
   margin: -2px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
 
 .nav-number {
   font-size: 12px;
 }
 
-/* for tablets */
-@media only screen and (min-width: 600px) {
+/* FOR TABLETS */
 
+@media only screen and (min-width: 600px) {
+  /* Navbar */
 }
 
-/* for desktop */
-@media only screen and (min-width: 768px) { 
+/* FOR DESKTOP */
+
+@media only screen and (min-width: 768px) {
+  /* Navbar */
   nav {
     justify-content: center;
   }
-  
+
   #nav-links {
     display: flex;
   }
