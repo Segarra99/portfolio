@@ -63,8 +63,21 @@ nav {
 }
 
 #nav-links-burger p {
-  padding-bottom: 20px;
   color: white;
+}
+
+.button-icon {
+  position: absolute;
+  border: none;
+  background: none;
+  padding: 0;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.button-icon img {
+  width: 40px;
 }
 
 .nav-link {
@@ -72,7 +85,8 @@ nav {
   flex-direction: column;
   align-items: end;
   text-decoration: none;
-  color: #20c20e;
+  color: #ffffff;
+  margin-top: 20px;
 }
 
 .nav-link p {

@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+// require icon
+const icon = require("../../assets/images/codeIcon.png");
 
 function Navbar() {
   const [hamburgerToggle, setHamburgerToggle] = useState(false);
@@ -8,10 +11,32 @@ function Navbar() {
     setHamburgerToggle(!hamburgerToggle);
   };
 
+  const burgerMenuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const handleClick = (event: MouseEvent) => {
+    if (
+      burgerMenuRef.current &&
+      !burgerMenuRef.current.contains(event.target as Node) &&
+      buttonRef.current &&
+      !buttonRef.current.contains(event.target as Node)
+    ) {
+      setHamburgerToggle(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClick);
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
+
   return (
     <>
       <div
         id="nav-links-burger"
+        ref={burgerMenuRef}
         className={hamburgerToggle ? "slide-in" : "slide-out"}
       >
         <Link to="/" className="nav-link" onClick={handleToggle}>
@@ -32,8 +57,13 @@ function Navbar() {
       </div>
 
       <nav>
-        <button id="nav-button" onClick={handleToggle}>
-          {hamburgerToggle ? String.fromCharCode(215) : String.fromCharCode(9776)}
+        <button
+          id="nav-button"
+          onClick={handleToggle}
+          className="button-icon"
+          ref={buttonRef}
+        >
+          <img src={icon} alt="icon" />
         </button>
         <div id="nav-links">
           <Link to="/" className="nav-link">
