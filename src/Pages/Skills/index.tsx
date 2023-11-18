@@ -4,7 +4,7 @@ import "./index.css";
 function SkillsPage(){
   return(
     <div>
-
+      
     </div>
   )
 }

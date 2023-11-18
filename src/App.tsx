@@ -18,7 +18,7 @@ const App: React.FC = () => {
   return (
     <div>
       <Navbar />
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route path="/about" element={<AboutPage />} />
           <Route path="/certifications" element={<CertificationsPage />} />
