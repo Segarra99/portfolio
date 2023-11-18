@@ -8,6 +8,7 @@ nav {
   height: 70px;
   position: fixed;
   top: 0;
+  z-index: 1000;
 }
 
 #nav-links {
@@ -66,7 +67,7 @@ nav {
 .nav-link {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
   text-decoration: none;
   color: #ffffff;
   margin-top: 20px;
