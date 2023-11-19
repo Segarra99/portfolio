@@ -9,7 +9,7 @@ function HomePage() {
       className="text-container"
       initial={{ x: '100%' }}
       animate={{ x: 0 }}
-      transition={{ duration: 1, ease: "easeOut" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       exit={{ x: '-100%' }}
     >
       <p id="name">MANUEL SEGARRA</p>

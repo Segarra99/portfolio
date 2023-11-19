@@ -1,5 +1,93 @@
 /* FOR MOBILE PHONES */
 
+#about {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: "Roboto Mono", monospace;
+  z-index: 0;
+  margin-top: 110px;
+}
+
+#about img {
+  width: 70px;
+}
+
+#about ul {
+  display: flex;
+}
+
+#about p {
+  width: 30vw;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 30px;
+}
+
+@keyframes colorAnimation {
+  0% {
+    background-color: #27282200; /* Start with fully transparent red */
+    border-color: rgba(0, 255, 0, 0);
+  }
+  50% {
+    background-color: #272822; /* Transition to fully opaque red */
+    border-color: #0f0;
+  }
+  100% {
+    background-color: #27282200; /* Transition back to fully transparent red */
+    border-color: rgba(0, 255, 0, 0);
+  }
+}
+
+#skills {
+  overflow-y: scroll;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #272822;
+  border: #0f0 2px solid;
+  border-left: #0f0 2px dashed;
+  padding: 20px;
+  position: relative;
+  animation: colorAnimation 7s linear infinite;
+}
+
+#skills::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
+}
+
+#skills li {
+list-style: none;
+margin-right: 15px;
+}
+
+#skills li {
+  list-style: none;
+  margin-right: 15px;
+}
+
+#bass {
+  width: 400px !important;
+}
+
+#info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #0f0;
+  border-left: 2px dashed #0f0;
+  width: 100px;
+  height: 100px;
+}
+
 /* FOR TABLETS */
 
 @media only screen and (min-width: 600px) {

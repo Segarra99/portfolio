@@ -8,6 +8,8 @@ body {
   background-color: rgb(31, 31, 31);
   color: white;
   overflow-x: hidden;
+  height: 100%;
+  width: 100%;
 }
 
 code {
