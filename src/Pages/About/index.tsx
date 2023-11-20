@@ -71,9 +71,9 @@ const AboutPage: React.FC = () => (
   >
     <div id="info">
       <p>
-        /* Hello, my name is Manuel Segarra and I&apos;m a full-stack web developer.
+        <span>/* </span>Hello, my name is Manuel Segarra and I&apos;m a full-stack web developer.
         I love learning and solving problems. Beyond coding, my main interests are
-        music, playing the bass guitar, cars and rock climbing. */
+        music, playing the bass guitar, cars and rock climbing.<span> */</span>
       </p>
       <img id="bass" src="/images/bass.webp" alt="bass" />
     </div>

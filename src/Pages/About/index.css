@@ -24,7 +24,7 @@
 @keyframes colorAnimation {
   0% {
     background-color: #27282200;
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(0, 255, 0, 0.15);
   }
   50% {
     background-color: #272822;
@@ -32,7 +32,19 @@
   }
   100% {
     background-color: #27282200;
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(0, 255, 0, 0.15);
+  }
+}
+
+@keyframes colorAnimationSpan {
+  0% {
+    color: rgba(0, 255, 0, 0.15);
+  }
+  50% {
+    color: rgb(0, 255, 0);
+  }
+  100% {
+    color: rgba(0, 255, 0, 0.15);
   }
 }
 
@@ -88,6 +100,11 @@
   align-items: center;
   justify-content: center;
   margin: 30px auto 20px auto;
+}
+
+#info span {
+  color: #0f0;
+  animation: colorAnimationSpan 7s linear infinite;
 }
 
 .logo-list {
