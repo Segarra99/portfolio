@@ -32,7 +32,8 @@
 
  .text-container #name{
   color: rgba(225,225,225, .01);
-  background-image: url("https://images.unsplash.com/photo-1445112098124-3e76dd67983c?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-image: url("/public/images/2.png");
+  background-size: 50%;
   background-repeat: repeat;
   -webkit-background-clip: text;
   background-clip: text;

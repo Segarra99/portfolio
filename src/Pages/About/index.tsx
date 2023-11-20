@@ -9,7 +9,7 @@ interface SkillSectionProps {
 
 const skillsData: SkillSectionProps[] = [
   {
-    title: "Languages_",
+    title: "languages_",
     logos: [
       { name: "/html", path: "/images/logos/html.png" },
       { name: "/css", path: "/images/logos/css.png" },
@@ -18,7 +18,7 @@ const skillsData: SkillSectionProps[] = [
     ],
   },
   {
-    title: "Frameworks_",
+    title: "frameworks_",
     logos: [
       { name: "/react", path: "/images/logos/react.png" },
       { name: "/node.js", path: "/images/logos/nodejs.png" },
@@ -27,7 +27,7 @@ const skillsData: SkillSectionProps[] = [
     ],
   },
   {
-    title: "Libraries_",
+    title: "libraries_",
     logos: [
       { name: "/bootstrap", path: "/images/logos/bootstrap.png" },
       { name: "/tailwind", path: "/images/logos/tailwind-css.png" },
@@ -35,14 +35,14 @@ const skillsData: SkillSectionProps[] = [
     ],
   },
   {
-    title: "Databases_",
+    title: "databases_",
     logos: [
       { name: "/mongodb", path: "/images/logos/mongodb.png" },
       { name: "/postgresql", path: "/images/logos/postgresql.png" },
     ],
   },
   {
-    title: "Tools_",
+    title: "tools_",
     logos: [
       { name: "/git", path: "/images/logos/git.png" },
       { name: "/postman", path: "/images/logos/postman.png" },
@@ -50,7 +50,7 @@ const skillsData: SkillSectionProps[] = [
     ],
   },
   {
-    title: "Technologies I'm learning on my free time_",
+    title: "technologies i'm learning on my free time_",
     logos: [
       { name: "/c#", path: "/images/logos/csharp.png" },
       { name: "/python", path: "/images/logos/python.png" },
@@ -87,7 +87,7 @@ const AboutPage: React.FC = () => (
           exit={{ x: "-100%" }}
         >
           <h3>{title}</h3>
-          <ul>
+          <ul className="logo-list">
             {logos.map((logo, logoIndex) => (
               <li key={logoIndex}>
                 <div className="logo">
