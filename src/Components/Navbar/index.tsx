@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import "./index.css";
 
@@ -40,21 +40,21 @@ function Navbar() {
         ref={burgerMenuRef}
         className={hamburgerToggle ? "slide-in" : "slide-out"}
       >
-        <Link to="/" className="nav-link" onClick={handleToggle}>
+        <NavLink to="/" className="nav-link" onClick={handleToggle} >
           <p>// home</p>
-        </Link>
-        <Link to="/about" className="nav-link" onClick={handleToggle}>
+        </NavLink>
+        <NavLink to="/about" className="nav-link" onClick={handleToggle}>
           <p>// about</p>
-        </Link>
-        <Link to="/projects" className="nav-link" onClick={handleToggle}>
+        </NavLink>
+        <NavLink to="/projects" className="nav-link" onClick={handleToggle}>
           <p>// projects</p>
-        </Link>
-        <Link to="/resume" className="nav-link" onClick={handleToggle}>
+        </NavLink>
+        <NavLink to="/resume" className="nav-link" onClick={handleToggle}>
           <p>// resume</p>
-        </Link>
-        <Link to="/contact" className="nav-link" onClick={handleToggle}>
+        </NavLink>
+        <NavLink to="/contact" className="nav-link" onClick={handleToggle}>
           <p>// contact</p>
-        </Link>
+        </NavLink>
       </div>
 
       <nav>
@@ -67,26 +67,26 @@ function Navbar() {
           <img src={icon} alt="icon" />
         </button>
         <div id="nav-links">
-          <Link to="/" className="nav-link">
+          <NavLink to="/" className="nav-link">
             <p className="nav-number">01</p>
             <p>// home</p>
-          </Link>
-          <Link to="/about" className="nav-link">
+          </NavLink>
+          <NavLink to="/about" className="nav-link">
             <p className="nav-number">02</p>
             <p>// about</p>
-          </Link>
-          <Link to="/projects" className="nav-link">
+          </NavLink>
+          <NavLink to="/projects" className="nav-link">
             <p className="nav-number">03</p>
             <p>// projects</p>
-          </Link>
-          <Link to="/resume" className="nav-link">
+          </NavLink>
+          <NavLink to="/resume" className="nav-link">
             <p className="nav-number">04</p>
             <p>// resume</p>
-          </Link>
-          <Link to="/contact" className="nav-link">
+          </NavLink>
+          <NavLink to="/contact" className="nav-link">
             <p className="nav-number">05</p>
             <p>// contact</p>
-          </Link>
+          </NavLink>
         </div>
       </nav>
     </>
