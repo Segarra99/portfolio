@@ -87,7 +87,7 @@ const AboutPage: React.FC = () => (
           exit={{ x: "-100%" }}
         >
           <h3>{title}</h3>
-          <ul className="logo-list">
+          <ul className="logo-list-about">
             {logos.map((logo, logoIndex) => (
               <li key={logoIndex}>
                 <div className="logo">

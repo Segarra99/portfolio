@@ -144,6 +144,7 @@ function ProjectsPage() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       exit={{ x: "-100%" }}
     >
+      <div id="projects-container">
       {projectsData.map(
         ({ name, image, description, technologies, github }, index) => (
           <m.section
@@ -201,6 +202,7 @@ function ProjectsPage() {
           </m.section>
         )
       )}
+      </div>
     </m.div>
   );
 }

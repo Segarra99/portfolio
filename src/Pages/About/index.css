@@ -107,7 +107,7 @@
   animation: colorAnimationSpan 7s linear infinite;
 }
 
-.logo-list {
+.logo-list-about {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

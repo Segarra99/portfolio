@@ -238,7 +238,13 @@ function ResumePage() {
       exit={{ x: "-100%" }}
     >
       {cvClicked ? (
-        <div id="full-cv">
+        <m.div
+          id="full-cv"
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          exit={{ x: "-100%" }}
+        >
           <iframe
             title="Curriculum Vitae"
             width="100%"
@@ -248,7 +254,7 @@ function ResumePage() {
           <div id="back-button" onClick={handleCvClick}>
             <p>// back</p>
           </div>
-        </div>
+        </m.div>
       ) : (
         <>
           <div id="cv">
@@ -259,8 +265,6 @@ function ResumePage() {
             <div id="cv-wrapper" onClick={handleCvClick}>
               <iframe
                 title="Curriculum Vitae"
-                width="300"
-                height="422"
                 src="cv.pdf#toolbar=0&zoom=0&view=fit"
                 style={{ pointerEvents: "none" }}
               ></iframe>
@@ -277,14 +281,21 @@ function ResumePage() {
             </h3>
             <div id="certifications">
               {certificationData.map(({ title, image, logos }, index) => (
-                <div className="certification" key={index}>
+                  <m.div
+                    className="certification"
+                    key={index}
+                    initial={{ x: "100%" }}
+                    animate={{ x: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    exit={{ x: "-100%" }}
+                  >
                   <h3 dangerouslySetInnerHTML={{ __html: title }} />
                   <img src={image} alt={title} />
                   <div className="certification-logos">
                     <h5>
                       technologies<span className="span">_</span>
                     </h5>
-                    <ul className="logo-list">
+                    <ul className="logo-list-resume">
                       {logos.map(({ name, path }, logoIndex) => (
                         <li className="certification-logo" key={logoIndex}>
                           <img src={path} alt={name} title={name} />
@@ -292,7 +303,7 @@ function ResumePage() {
                       ))}
                     </ul>
                   </div>
-                </div>
+                </m.div>
               ))}
             </div>
           </div>

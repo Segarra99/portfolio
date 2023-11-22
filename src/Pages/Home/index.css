@@ -32,7 +32,7 @@
 
 .text-container #name {
   color: rgba(225, 225, 225, 0.01);
-  background-image: url("/public/images/climbing_holds.png");
+  background-image: url("/public/images/wallpaper.webp");
   background-size: 50%;
   background-repeat: repeat;
   -webkit-background-clip: text;

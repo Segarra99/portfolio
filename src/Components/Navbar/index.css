@@ -8,8 +8,8 @@ nav {
   height: 70px;
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 1000;
-  background-color: rgba(31, 31, 31, 0.95);
 }
 
 #nav-links {

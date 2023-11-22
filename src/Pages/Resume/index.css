@@ -3,17 +3,21 @@
 #resume-div {
   margin-top: 100px;
   height: 85vh;
+  width: 95vw;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-around;
   font-family: "Roboto Mono", monospace;
 }
 
-iframe {
+#cv-wrapper iframe {
   overflow: hidden;
   border: 2px rgb(0, 255, 0) solid;
   border-left: 2px rgb(0, 255, 0) dashed;
   animation: colorAnimation 7s linear infinite;
+  aspect-ratio: 30000/42200;
+  width: 20vw;
 }
 
 @keyframes colorAnimation {
@@ -61,10 +65,11 @@ iframe {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 80vh;
-  width: 98%;
+  height: 100vw;
   overflow-y: scroll;
+  overflow-x: hidden;
   animation: colorAnimation 7s linear infinite;
+  width: 95%;
 }
 
 #certifications::-webkit-scrollbar-track {
@@ -114,11 +119,12 @@ iframe {
   width: 21px;
 }
 
-.logo-list {
+.logo-list-resume {
   list-style: none;
   display: flex;
   flex-direction: row;
-  width: 280px;
+  width: 100%;
+  flex-wrap: wrap;
   padding-left: 0;
 }
 
@@ -128,6 +134,7 @@ iframe {
 
 h3 {
   width: 280px;
+  text-align: center;
 }
 
 #cv {
@@ -135,6 +142,7 @@ h3 {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  width: 29vw;
 }
 
 #cv p {
@@ -144,7 +152,7 @@ h3 {
 #cv-wrapper {
   cursor: pointer;
   z-index: 1000;
-  margin-top: 400px;
+  height: 30vw;
 }
 
 #full-cv {
@@ -163,14 +171,27 @@ h3 {
   animation: colorAnimationButton 7s linear infinite;
 }
 
+#certification-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100vw;
+}
+
 /* FOR TABLETS */
 
 @media only screen and (min-width: 600px) {
-}
+  #certifications {
+    width: unset;
+    height: 80vh;
+    width: 71vw;
+  }
 
-/* FOR DESKTOP */
+  #certification-section {
+    width: unset;
+  }
 
-@media only screen and (min-width: 768px) {
   #resume-div {
     flex-direction: row;
   }
@@ -183,6 +204,7 @@ h3 {
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
+    align-items: unset;
   }
 
   .certification {
@@ -204,4 +226,9 @@ h3 {
   h3 {
     width: 400px;
   }
+}
+
+/* FOR DESKTOP */
+
+@media only screen and (min-width: 768px) {
 }
