@@ -51,8 +51,8 @@
 #skills {
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 55vh;
-  width: 80vw;
+  height: 50vh;
+  width: 70vw;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -78,7 +78,7 @@
 }
 
 #skills::-webkit-scrollbar-thumb {
-  border-radius: 5px;
+  border-radius: 0;
   -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
   background-color: #494949;
 }
