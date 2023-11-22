@@ -1,9 +1,12 @@
 /* FOR MOBILE PHONES */
 
 #resume-div {
-  margin-top: 75px;
-  height: 100vh;
-  overflow: hidden;
+  margin-top: 100px;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: "Roboto Mono", monospace;
 }
 
 iframe {
@@ -28,14 +31,177 @@ iframe {
   }
 }
 
+@keyframes colorAnimationSpan {
+  0% {
+    color: rgba(0, 255, 0, 0.15);
+  }
+  50% {
+    color: rgb(0, 255, 0);
+  }
+  100% {
+    color: rgba(0, 255, 0, 0.15);
+  }
+}
+
+@keyframes colorAnimationButton {
+  0% {
+    border-color: rgba(0, 255, 0, 0.15);
+  }
+  50% {
+    border-color: rgb(0, 255, 0);
+  }
+  100% {
+    border-color: rgba(0, 255, 0, 0.15);
+  }
+}
+
+#certifications {
+  border: 2px rgb(0, 255, 0) solid;
+  border-left: 2px rgb(0, 255, 0) dashed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  width: 98%;
+  overflow-y: scroll;
+  animation: colorAnimation 7s linear infinite;
+}
+
+#certifications::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #272822;
+  border-radius: 10px;
+  background-color: #272822;
+}
+
+#certifications::-webkit-scrollbar {
+  width: 6px;
+  background-color: #272822;
+}
+
+#certifications::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+  background-color: rgb(0, 255, 0);
+}
+
+.certification {
+  border: 2px rgb(0, 255, 0) solid;
+  border-left: 2px rgb(0, 255, 0) dashed;
+  padding: 10px;
+  margin: 10px;
+  animation: colorAnimation 7s linear infinite;
+  width: 283px;
+}
+
+.certification > img {
+  width: 280px;
+  border: 2px rgb(0, 255, 0) solid;
+  animation: colorAnimation 7s linear infinite;
+}
+
+.certification-logo {
+  padding: 5px;
+  border: 2px rgb(0, 255, 0) solid;
+  border-left: 2px rgb(0, 255, 0) dashed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+  animation: colorAnimation 7s linear infinite;
+}
+
+.certification-logo img {
+  width: 21px;
+}
+
+.logo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  width: 280px;
+  padding-left: 0;
+}
+
+.span {
+  animation: colorAnimationSpan 7s linear infinite;
+}
+
+h3 {
+  width: 280px;
+}
+
+#cv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#cv p {
+  cursor: pointer;
+}
+
+#cv-wrapper {
+  cursor: pointer;
+  z-index: 1000;
+  margin-top: 400px;
+}
+
+#full-cv {
+  width: 90%;
+  height: 90%;
+}
+
+#back-button {
+  border-bottom: 2px rgb(0, 255, 0) solid;
+  width: 8vw;
+  height: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  animation: colorAnimationButton 7s linear infinite;
+}
+
 /* FOR TABLETS */
 
 @media only screen and (min-width: 600px) {
-
 }
 
 /* FOR DESKTOP */
 
 @media only screen and (min-width: 768px) {
+  #resume-div {
+    flex-direction: row;
+  }
 
+  #cv-wrapper {
+    margin-top: 0;
+  }
+
+  #certifications {
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .certification {
+    width: 404px;
+  }
+
+  .certification > img {
+    width: 400px;
+  }
+
+  .certification-logo img {
+    width: 30px;
+  }
+
+  .logo-list {
+    width: 400px;
+  }
+
+  h3 {
+    width: 400px;
+  }
 }
