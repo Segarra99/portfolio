@@ -13,12 +13,12 @@ function ContactPage() {
   const contactData: ContactSectionProps[] = [
     {
       title: "linkedin<span class='title-span'>_</span>",
-      logo: { name: "/in/manuel-segarra", path: "/images/logos/linkedin.png" },
+      logo: { name: "/in/manuel-segarra", path: `${process.env.PUBLIC_URL}/images/logos/linkedin.png` },
       link: "https://www.linkedin.com/in/manuel-segarra",
     },
     {
       title: "github<span class='title-span'>_</span>",
-      logo: { name: "/segarra99", path: "/images/logos/github.png" },
+      logo: { name: "/segarra99", path: `${process.env.PUBLIC_URL}/images/logos/github.png` },
       link: "https://www.github.com/segarra99",
     },
   ];

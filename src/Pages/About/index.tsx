@@ -11,73 +11,73 @@ const skillsData: SkillSectionProps[] = [
   {
     title: "languages_",
     logos: [
-      { name: "/javascript", path: "/images/logos/javascript.png" },
-      { name: "/typescript", path: "/images/logos/typescript.png" },
-      { name: "/html", path: "/images/logos/html.png" },
-      { name: "/css", path: "/images/logos/css.png" },
+      { name: "/javascript", path: `${process.env.PUBLIC_URL}/images/logos/javascript.png` },
+      { name: "/typescript", path: `${process.env.PUBLIC_URL}/images/logos/typescript.png` },
+      { name: "/html", path: `${process.env.PUBLIC_URL}/images/logos/html.png` },
+      { name: "/css", path: `${process.env.PUBLIC_URL}/images/logos/css.png` },
     ],
   },
   {
     title: "frameworks_",
     logos: [
-      { name: "/node.js", path: "/images/logos/nodejs.png" },
-      { name: "/express", path: "/images/logos/express.png" },
-      { name: "/nestjs", path: "/images/logos/nestjs.png" },
-      { name: "/react", path: "/images/logos/react.png" },
+      { name: "/node.js", path: `${process.env.PUBLIC_URL}/images/logos/nodejs.png` },
+      { name: "/express", path: `${process.env.PUBLIC_URL}/images/logos/express.png` },
+      { name: "/nestjs", path: `${process.env.PUBLIC_URL}/images/logos/nestjs.png` },
+      { name: "/react", path: `${process.env.PUBLIC_URL}/images/logos/react.png` },
     ],
   },
   {
     title: "libraries_",
     logos: [
-      { name: "/bootstrap", path: "/images/logos/bootstrap.png" },
-      { name: "/tailwind", path: "/images/logos/tailwind-css.png" },
-      { name: "/materialui", path: "/images/logos/material.png" },
+      { name: "/bootstrap", path: `${process.env.PUBLIC_URL}/images/logos/bootstrap.png` },
+      { name: "/tailwind", path: `${process.env.PUBLIC_URL}/images/logos/tailwind-css.png` },
+      { name: "/materialui", path: `${process.env.PUBLIC_URL}/images/logos/material.png` },
     ],
   },
   {
     title: "databases_",
     logos: [
-      { name: "/postgresql", path: "/images/logos/postgresql.png" },
-      { name: "/mysql", path: "/images/logos/mysql.png" },
-      { name: "/mongodb", path: "/images/logos/mongodb.png" },
+      { name: "/postgresql", path: `${process.env.PUBLIC_URL}/images/logos/postgresql.png` },
+      { name: "/mysql", path: `${process.env.PUBLIC_URL}/images/logos/mysql.png` },
+      { name: "/mongodb", path: `${process.env.PUBLIC_URL}/images/logos/mongodb.png` },
     ],
   },
   {
     title: "infra_",
     logos: [
-      { name: "/docker", path: "/images/logos/docker.png" },
-      { name: "/redis", path: "/images/logos/redis.png" },
-      { name: "/aws", path: "/images/logos/aws.png" },
-      { name: "/cloudflare", path: "/images/logos/cloudflare.png" },
+      { name: "/docker", path: `${process.env.PUBLIC_URL}/images/logos/docker.png` },
+      { name: "/redis", path: `${process.env.PUBLIC_URL}/images/logos/redis.png` },
+      { name: "/aws", path: `${process.env.PUBLIC_URL}/images/logos/aws.png` },
+      { name: "/cloudflare", path: `${process.env.PUBLIC_URL}/images/logos/cloudflare.png` },
     ],
   },
   {
     title: "devtools_",
     logos: [
-      { name: "/eslint", path: "/images/logos/eslint.png" },
-      { name: "/prettier", path: "/images/logos/prettier.png" },
-      { name: "/husky", path: "/images/logos/husky.png" },
-      { name: "/jest", path: "/images/logos/jest.png" },
-      { name: "/webpack", path: "/images/logos/webpack.png" },
-      { name: "/swagger", path: "/images/logos/swagger.png" },
+      { name: "/eslint", path: `${process.env.PUBLIC_URL}/images/logos/eslint.png` },
+      { name: "/prettier", path: `${process.env.PUBLIC_URL}/images/logos/prettier.png` },
+      { name: "/husky", path: `${process.env.PUBLIC_URL}/images/logos/husky.png` },
+      { name: "/jest", path: `${process.env.PUBLIC_URL}/images/logos/jest.png` },
+      { name: "/webpack", path: `${process.env.PUBLIC_URL}/images/logos/webpack.png` },
+      { name: "/swagger", path: `${process.env.PUBLIC_URL}/images/logos/swagger.png` },
     ],
   },
   {
     title: "tools_",
     logos: [
-      { name: "/git", path: "/images/logos/git.png" },
-      { name: "/postman", path: "/images/logos/postman.png" },
-      { name: "/vscode", path: "/images/logos/vscode.png" },
-      { name: "/visualstudio", path: "/images/logos/visualstudio.png" },
+      { name: "/git", path: `${process.env.PUBLIC_URL}/images/logos/git.png` },
+      { name: "/postman", path: `${process.env.PUBLIC_URL}/images/logos/postman.png` },
+      { name: "/vscode", path: `${process.env.PUBLIC_URL}/images/logos/vscode.png` },
+      { name: "/visualstudio", path: `${process.env.PUBLIC_URL}/images/logos/visualstudio.png` },
     ],
   },
   {
     title: "learning_",
     logos: [
-      { name: "/c#", path: "/images/logos/csharp.png" },
-      { name: "/python", path: "/images/logos/python.png" },
-      { name: "/java", path: "/images/logos/java.png" },
-      { name: "/php", path: "/images/logos/php.png" },
+      { name: "/c#", path: `${process.env.PUBLIC_URL}/images/logos/csharp.png` },
+      { name: "/python", path: `${process.env.PUBLIC_URL}/images/logos/python.png` },
+      { name: "/java", path: `${process.env.PUBLIC_URL}/images/logos/java.png` },
+      { name: "/php", path: `${process.env.PUBLIC_URL}/images/logos/php.png` },
     ],
   },
 ];
@@ -99,7 +99,7 @@ const AboutPage: React.FC = () => (
         Flamengo, under PixBet. Outside of coding, I&apos;m passionate about
         music, bass guitar, cars, and rock climbing.<span> */</span>
       </p>
-      <img id="bass" src="/images/bass.webp" alt="bass" />
+      <img id="bass" src={`${process.env.PUBLIC_URL}/images/bass.webp`} alt="bass" />
     </div>
     <div id="skills">
       {skillsData.map(({ title, logos }, index) => (
