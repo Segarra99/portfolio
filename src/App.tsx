@@ -1,14 +1,13 @@
-// App.tsx
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import Navbar from "./components/Navbar";
-import AboutPage from "./pages/About";
-import ContactPage from "./pages/Contact";
-import HomePage from "./pages/Home";
-import ProjectsPage from "./pages/Projects";
-import ResumePage from "./pages/Resume";
-import "./App.css";
+import Navbar from "./components/navbar";
+import AboutPage from "./pages/about";
+import ContactPage from "./pages/contact";
+import HomePage from "./pages/home";
+import ProjectsPage from "./pages/projects";
+import ResumePage from "./pages/resume";
+import "./app.css";
 
 const App: React.FC = () => {
   const location = useLocation();

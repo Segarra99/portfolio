@@ -13,7 +13,7 @@ const Email: React.FC = () => {
     const templateParams = {
       from_email: recipientEmail,
       from_name: recipientName,
-      to_name: "Manuel Segarra",
+      to_name: "PORTFOLIO MESSAGE",
       message: message,
     };
 
