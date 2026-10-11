@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "scientifica";
+    src: url("/fonts/scientifica.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "scientifica";
+    src: url("/fonts/scientifica-bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "scientifica";
+    src: url("/fonts/scientifica-italic.woff2") format("woff2");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+:root {
+    --bg: #181a24;
+    --fg: #e6e0cc;
+    --accent-green: #6dff8f;
+    --accent-yellow: #ffc857;
+    --font-mono: "scientifica", monospace;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-mono);
+}
