@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+    <span>$ cd /the-page-you-wanted</span>
+    <h1>404</h1>
+    <span>page-not-found</span>
+    <p>
+        That address doesn't exist, or it has been moved. These are the pages
+        that do.
+    </p>
+    <div class="box">
+        <span>error.log</span>
+        <p>$ cd /the-page-you-wanted</p>
+        <p>bash: cd: /the-page-you-wanted: No such file or directory</p>
+        <p>$ ls ~</p>
+        <ul>
+            <li>
+                <a href="/#about">about/</a>
+            </li>
+            <li>
+                <a href="/#projects">projects/</a>
+            </li>
+            <li>
+                <a href="/#experience">experience/</a>
+            </li>
+            <li>
+                <a href="/#skills">skills/</a>
+            </li>
+            <li>
+                <a href="/#contact">contact/</a>
+            </li>
+        </ul>
+    </div>
+    <a href="/">cd ~</a>
+</Layout>
