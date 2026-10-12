@@ -1,0 +1,23 @@
+---
+import type { Project } from "../../data/projects";
+type Props = {
+    project: Project;
+};
+const { project } = Astro.props;
+---
+
+<div class="box">
+    <p>{project.title.toLowerCase()}/</p>
+    <img src={project.image} />
+    <h2>{project.title}</h2>
+    <p>{project.description}</p>
+    <ul>
+        {project.technologies.map((tech) => (
+            <li>{tech}</li>
+        ))}
+    </ul>
+    <div>
+        {project.demo && <a href={project.demo}>> live</a>}
+        {project.github && <a href={project.github}>> code</a>}
+    </div>
+</div>
