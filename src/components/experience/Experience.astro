@@ -1,0 +1,15 @@
+---
+import { experiences } from "../../data/experience";
+import ExperienceEntry from "./ExperienceEntry.astro";
+---
+
+<section id="experience">
+    <h2>$ git log --experience</h2>
+    <ol>
+        {experiences.map((experience) => (
+            <li>
+                <ExperienceEntry experience={experience} />
+            </li>
+        ))}
+    </ol>
+</section>
