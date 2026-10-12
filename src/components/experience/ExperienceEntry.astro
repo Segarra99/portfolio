@@ -1,0 +1,20 @@
+---
+import type { Experience } from "../../data/experience";
+type Props = {
+    experience: Experience;
+};
+const { experience } = Astro.props;
+---
+
+<article>
+    <p>{experience.period}</p>
+    <h3>{experience.role}</h3>
+    <h2>
+        {experience.company}, {experience.location}
+    </h2>
+    <ul>
+        {experience.bullets.map((bullet) => (
+            <li>{bullet}</li>
+        ))}
+    </ul>
+</article>
