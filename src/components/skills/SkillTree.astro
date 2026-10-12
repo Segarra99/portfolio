@@ -1,0 +1,22 @@
+---
+import type { SkillGroup } from "../../data/skills";
+type Props = {
+    group: SkillGroup;
+};
+const { group } = Astro.props;
+---
+
+<details open>
+    <summary>
+        <span>[-]</span>
+        <span>{group.category}/</span>
+        <span>({group.skills.length})</span>
+    </summary>
+    <ul>
+        {group.skills.map((skill, index, array) => (
+            <li>
+                {index === array.length - 1 ? "`--" : "|---"} {skill.name}
+            </li>
+        ))}
+    </ul>
+</details>
