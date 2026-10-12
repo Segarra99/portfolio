@@ -6,7 +6,7 @@ type Props = {
 const { project } = Astro.props;
 ---
 
-<div class="box">
+<article class="box">
     <p>{project.title.toLowerCase()}/</p>
     <img src={project.image} />
     <h2>{project.title}</h2>
@@ -20,4 +20,4 @@ const { project } = Astro.props;
         {project.demo && <a href={project.demo}>> live</a>}
         {project.github && <a href={project.github}>> code</a>}
     </div>
-</div>
+</article>
