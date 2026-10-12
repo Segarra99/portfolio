@@ -1,22 +1,16 @@
 ---
+const links = ["about", "projects", "experience", "skills", "contact"];
 ---
 
 <nav>
     <ul>
-        <li>
-            <a href="#about">./about</a>
-        </li>
-        <li>
-            <a href="#projects">./projects</a>
-        </li>
-        <li>
-            <a href="#experience">./experience</a>
-        </li>
-        <li>
-            <a href="#skills">./skills</a>
-        </li>
-        <li>
-            <a href="#contact">./contact</a>
-        </li>
+        {links.map((link) => (
+            <li>
+                <a href=`#${link}`>./{link}</a>
+            </li>
+        ))}
     </ul>
+    <div>
+        <button>[ dark ]</button>
+    </div>
 </nav>
