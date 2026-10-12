@@ -1,0 +1,13 @@
+---
+import { projects } from "../../data/projects";
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<section id="projects">
+    <h2>$ ls ./projects</h2>
+    <div>
+        {projects.map((project) => (
+            <ProjectCard project={project} />
+        ))}
+    </div>
+</section>
