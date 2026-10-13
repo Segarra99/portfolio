@@ -1,5 +1,11 @@
 ---
-const links = ["about", "projects", "experience", "skills", "contact"];
+const links: string[] = [
+    "about",
+    "projects",
+    "experience",
+    "skills",
+    "contact",
+];
 ---
 
 <nav>
@@ -11,6 +17,23 @@ const links = ["about", "projects", "experience", "skills", "contact"];
         ))}
     </ul>
     <div>
-        <button>[ dark ]</button>
+        <button id="theme-toggle"></button>
     </div>
 </nav>
+
+<script>
+    const toggle = document.querySelector<HTMLButtonElement>("#theme-toggle");
+    const root = document.documentElement;
+
+    if (toggle) {
+        toggle.textContent = `[ ${root.dataset.theme} ]`;
+
+        toggle.addEventListener("click", () => {
+            const theme = root.dataset.theme === "light" ? "dark" : "light";
+
+            root.dataset.theme = theme;
+            localStorage.setItem("theme", theme);
+            toggle.textContent = `[ ${theme} ]`;
+        });
+    }
+</script>
