@@ -34,9 +34,26 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
     font-family: var(--font);
+}
+
+button {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
 }
