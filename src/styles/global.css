@@ -6,28 +6,26 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: "scientifica";
-    src: url("/fonts/scientifica-bold.woff2") format("woff2");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "scientifica";
-    src: url("/fonts/scientifica-italic.woff2") format("woff2");
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-}
-
 :root {
-    --bg: #181a24;
-    --fg: #e6e0cc;
-    --accent-green: #6dff8f;
-    --accent-yellow: #ffc857;
-    --font-mono: "scientifica", monospace;
+    color-scheme: dark;
+    --bg: light-dark(#e9e5d3, #11121a);
+    --panel: light-dark(#f6f2e2, #181a24);
+    --border: light-dark(#1b1b1b, #d8d2bd);
+    --text: light-dark(#1b1b1b, #e6e0cc);
+    --sub: light-dark(#3d3a31, #c9c4b0);
+    --dim: light-dark(#5c584c, #9aa0b4);
+    --accent1: light-dark(#1a5fb4, #6dff8f);
+    --accent2: light-dark(#b4531a, #ffc857);
+    --ink: light-dark(#f6f2e2, #11121a);
+    --grid: light-dark(#d6d1bd, #232636);
+    --line: light-dark(#bcb59c, #2a2e44);
+    --shadow: light-dark(#1b1b1b, #000);
+    --scan: light-dark(rgba(0, 0, 0, 0.04), rgba(255, 255, 255, 0.03));
+    --font: "scientifica", ui-monospace, monospace;
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
 }
 
 *,
@@ -39,6 +37,6 @@
 body {
     margin: 0;
     background: var(--bg);
-    color: var(--fg);
-    font-family: var(--font-mono);
+    color: var(--text);
+    font-family: var(--font);
 }
