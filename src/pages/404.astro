@@ -3,7 +3,9 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-    <span>$ cd /the-page-you-wanted</span>
+    <span>
+        $ cd <span data-path>/the-page-you-wanted</span>
+    </span>
     <h1>404</h1>
     <span>page-not-found</span>
     <p>
@@ -12,8 +14,13 @@ import Layout from "../layouts/Layout.astro";
     </p>
     <div class="box">
         <span>error.log</span>
-        <p>$ cd /the-page-you-wanted</p>
-        <p>bash: cd: /the-page-you-wanted: No such file or directory</p>
+        <p>
+            $ cd <span data-path>/the-page-you-wanted</span>
+        </p>
+        <p>
+            bash: cd: <span data-path>/the-page-you-wanted</span>: No such file
+            or directory
+        </p>
         <p>$ ls ~</p>
         <ul>
             <li>
@@ -35,3 +42,19 @@ import Layout from "../layouts/Layout.astro";
     </div>
     <a href="/">cd ~</a>
 </Layout>
+
+<script>
+    let path = window.location.pathname;
+
+    try {
+        path = decodeURIComponent(path);
+    } catch {}
+
+    if (path.length > 60) {
+        path = path.slice(0, 57) + "...";
+    }
+
+    document.querySelectorAll("[data-path]").forEach((element) => {
+        element.textContent = path;
+    });
+</script>
