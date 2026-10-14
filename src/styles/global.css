@@ -58,12 +58,6 @@ body {
     font-size: 24px;
 }
 
-main,
-header,
-footer {
-    padding: 1rem 2rem;
-}
-
 section[id] {
     scroll-margin-top: 5rem;
 }
@@ -93,4 +87,9 @@ ol {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+.container {
+    width: min(100% - 4rem, 80rem);
+    margin-inline: auto;
 }
