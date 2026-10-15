@@ -26,10 +26,10 @@ export const projects: Project[] = [
         ],
     },
     {
-        title: "CMusic",
+        title: "Connected Music",
         description:
             "Spotify integration inside BMW and Rolls-Royce infotainment systems. Owned releases and deployment pipelines.",
-        image: "images/projects/cmusic.png",
+        image: "images/projects/connected-music.png",
         technologies: ["TypeScript", "GitHub", "Python", "Linux", "Kanban"],
     },
     {
