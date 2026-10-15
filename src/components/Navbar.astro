@@ -1,39 +1,201 @@
 ---
-const links: string[] = [
-    "about",
-    "projects",
-    "experience",
-    "skills",
-    "contact",
+const links = [
+    { href: "/#about", label: "./about" },
+    { href: "/#projects", label: "./projects" },
+    { href: "/#experience", label: "./experience" },
+    { href: "/#skills", label: "./skills" },
+    { href: "/#contact", label: "./contact" },
 ];
 ---
 
 <nav>
-    <ul>
-        {links.map((link) => (
+    <a id="brand" href="/">
+        segarra@dev:~$<span id="cursor"></span>
+    </a>
+
+    <button id="menu-toggle" type="button">
+        [ menu ]
+    </button>
+
+    <ul id="nav-links">
+        {links.map(({ href, label }) => (
             <li>
-                <a href=`#${link}`>./{link}</a>
+                <a href={href}>{label}</a>
             </li>
         ))}
+        <li id="theme-toggle">
+            <span></span>
+            <button type="button"></button>
+        </li>
     </ul>
-    <div>
-        <button id="theme-toggle"></button>
-    </div>
 </nav>
 
 <script>
-    const toggle = document.querySelector<HTMLButtonElement>("#theme-toggle");
+    // menu
+    const menu = document.querySelector<HTMLButtonElement>("#menu-toggle");
+    const navLinks = document.querySelector<HTMLUListElement>("#nav-links");
+
+    if (menu && navLinks) {
+        menu.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("open");
+            menu.textContent = isOpen ? "[ close ]" : "[ menu ]";
+        });
+    }
+
+    // theme
+    const themeToggle = document.querySelector<HTMLButtonElement>(
+        "#theme-toggle button",
+    );
     const root = document.documentElement;
 
-    if (toggle) {
-        toggle.textContent = `[ ${root.dataset.theme} ]`;
-
-        toggle.addEventListener("click", () => {
+    if (themeToggle) {
+        themeToggle.textContent = `[${root.dataset.theme}]`;
+        themeToggle.addEventListener("click", () => {
             const theme = root.dataset.theme === "light" ? "dark" : "light";
-
             root.dataset.theme = theme;
             localStorage.setItem("theme", theme);
-            toggle.textContent = `[ ${theme} ]`;
+            themeToggle.textContent = `[${theme}]`;
         });
     }
 </script>
+
+<style>
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #brand {
+        color: var(--accent2);
+        font-size: 1.75rem;
+        white-space: nowrap;
+    }
+
+    #brand:hover {
+        border-color: var(--accent1);
+        background: var(--accent1);
+        color: var(--panel);
+    }
+
+    #menu-toggle {
+        padding: 0.4rem 0.9rem;
+        border: 3px solid var(--border);
+        white-space: nowrap;
+    }
+
+    #nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        flex-direction: column;
+        border-bottom: 3px solid var(--border);
+        background: var(--panel);
+        box-shadow: 0 6px 0 var(--shadow);
+    }
+
+    #nav-links.open {
+        display: flex;
+    }
+
+    #nav-links a {
+        display: block;
+        padding: 0.9rem 1.5rem;
+        border-top: 2px dashed var(--line);
+    }
+
+    #nav-links a:hover {
+        background: var(--accent1);
+        color: var(--panel);
+        border-color: var(--accent1);
+    }
+
+    #theme-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0.5rem 1.5rem;
+        border-top: 3px solid var(--border);
+    }
+
+    #theme-toggle span::before {
+        content: "theme";
+        color: var(--dim);
+    }
+
+    #theme-toggle button {
+        padding: 0.2rem 0.8rem;
+        border: 3px solid transparent;
+        color: var(--accent1);
+        transform: none;
+        box-shadow: none;
+    }
+
+    #theme-toggle button:hover {
+        border-color: var(--accent2);
+    }
+
+    #cursor {
+        display: inline-block;
+        width: 0.7rem;
+        height: 1.2rem;
+        vertical-align: -0.1em;
+        background: var(--accent1);
+        animation: blink 1s steps(2, start) infinite;
+    }
+
+    @keyframes blink {
+        to {
+            visibility: hidden;
+        }
+    }
+
+    @media (min-width: 1050px) {
+        #menu-toggle {
+            display: none;
+        }
+
+        #nav-links {
+            display: flex;
+            position: static;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            box-shadow: none;
+        }
+
+        #nav-links a {
+            padding: 0.2rem 0.8rem;
+            border: 2px solid transparent;
+        }
+
+        #nav-links a:hover {
+            border-color: var(--accent2);
+            background: transparent;
+            color: var(--accent2);
+        }
+
+        #theme-toggle {
+            width: auto;
+            padding: 0;
+            border: none;
+            gap: 0.5rem;
+        }
+
+        #theme-toggle span {
+            display: block;
+            height: 2rem;
+            margin-inline: 0.5rem;
+            border-left: 2px dashed var(--line);
+        }
+
+        #theme-toggle span::before {
+            content: none;
+        }
+    }
+</style>

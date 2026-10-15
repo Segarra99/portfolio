@@ -3,6 +3,21 @@ import Navbar from "./Navbar.astro";
 ---
 
 <header>
-    <p>segarra@lisbon:~$</p>
-    <Navbar />
+    <div class="container">
+        <Navbar />
+    </div>
 </header>
+
+<style>
+    header {
+        background: var(--panel);
+        border-bottom: 3px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .container {
+        padding-block: 0.7rem;
+    }
+</style>
