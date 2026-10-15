@@ -68,7 +68,13 @@ button {
     font: inherit;
     color: inherit;
     cursor: pointer;
+    box-shadow: 5px 5px 0 var(--shadow);
     transition: none;
+}
+
+button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 var(--shadow);
 }
 
 a {
@@ -90,6 +96,6 @@ ol {
 }
 
 .container {
-    width: min(100% - 4rem, 80rem);
+    width: min(100% - 2rem, 77rem);
     margin-inline: auto;
 }
