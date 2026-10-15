@@ -115,6 +115,7 @@ export const skills: SkillGroup[] = [
             { name: "npm", highlighted: true },
             { name: "Postman" },
             { name: "Prettier" },
+            { name: "Zod" },
         ],
     },
 ];
