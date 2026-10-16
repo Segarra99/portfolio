@@ -1,0 +1,80 @@
+---
+const { title } = Astro.props;
+---
+
+<div class="window">
+    <div class="titlebar">
+        <span>{title}</span>
+        <button class="toggle">[_]</button>
+    </div>
+    <div class="content">
+        <slot />
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll<HTMLElement>(".window").forEach((window) => {
+        const toggle = window.querySelector<HTMLButtonElement>(".toggle");
+        const content = window.querySelector<HTMLDivElement>(".content");
+
+        if (!toggle || !content) return;
+
+        toggle.addEventListener("click", () => {
+            const isCollapsed = content.classList.toggle("collapsed");
+            toggle.textContent = isCollapsed ? "[+]" : "[-]";
+        });
+    });
+</script>
+
+<style>
+    .titlebar {
+        display: flex;
+        justify-content: space-between;
+        padding-inline: 0.9rem;
+        background-color: var(--border);
+    }
+
+    .toggle {
+        box-shadow: none;
+    }
+
+    .toggle:hover {
+        transform: none;
+        background-color: var(--accent1);
+    }
+
+    .window {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        background-color: var(--border);
+        color: var(--bg);
+        border: 3px solid var(--border);
+        box-shadow: 7px 7px 0 var(--shadow);
+        width: fit-content;
+    }
+
+    .content.collapsed {
+        visibility: hidden;
+    }
+
+    .window:has(#content.collapsed) {
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+    }
+
+    .window:has(#content.collapsed) #titlebar {
+        position: relative;
+        z-index: 1;
+        outline: 3px solid var(--border);
+        box-shadow: 7px 7px 0 var(--shadow);
+    }
+
+    .window:has(#content.collapsed) #titlebar::after {
+        content: "";
+        position: absolute;
+        inset: -3px;
+        box-shadow: 7px 7px 0 var(--shadow);
+        pointer-events: none;
+    }
+</style>
