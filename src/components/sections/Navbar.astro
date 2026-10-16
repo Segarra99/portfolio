@@ -32,13 +32,14 @@ const links = [
 
 <script>
     // menu
-    const menu = document.querySelector<HTMLButtonElement>("#menu-toggle");
+    const menuToggle =
+        document.querySelector<HTMLButtonElement>("#menu-toggle");
     const navLinks = document.querySelector<HTMLUListElement>("#nav-links");
 
-    if (menu && navLinks) {
-        menu.addEventListener("click", () => {
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
             const isOpen = navLinks.classList.toggle("open");
-            menu.textContent = isOpen ? "[ close ]" : "[ menu ]";
+            menuToggle.textContent = isOpen ? "[ close ]" : "[ menu ]";
         });
     }
 
@@ -51,10 +52,19 @@ const links = [
     if (themeToggle) {
         themeToggle.textContent = `[${root.dataset.theme}]`;
         themeToggle.addEventListener("click", () => {
+            // add theme switch class to root for transition animation
+            root.classList.add("theme-switch");
+
+            // handle theme switch
             const theme = root.dataset.theme === "light" ? "dark" : "light";
             root.dataset.theme = theme;
             localStorage.setItem("theme", theme);
             themeToggle.textContent = `[${theme}]`;
+
+            // remove theme switch class after anumation is over (timeout matches global css rule)
+            setTimeout(() => {
+                root.classList.remove("theme-switch");
+            }, 500);
         });
     }
 </script>
@@ -129,7 +139,7 @@ const links = [
 
     #theme-toggle button {
         padding: 0.2rem 0.8rem;
-        border: 3px solid transparent;
+        border: 2px solid transparent;
         color: var(--accent1);
         transform: none;
         box-shadow: none;
