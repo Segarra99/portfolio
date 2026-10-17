@@ -71,7 +71,6 @@ const links = [
 
 <style>
     nav {
-        position: relative;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -82,21 +81,21 @@ const links = [
         color: var(--accent2);
         font-size: 1.75rem;
         white-space: nowrap;
-    }
 
-    .brand:hover {
-        border-color: var(--accent1);
-        background: var(--accent1);
-        color: var(--panel);
-    }
+        &:hover {
+            border-color: var(--accent1);
+            background: var(--accent1);
+            color: var(--panel);
+        }
 
-    .brand span {
-        display: inline-block;
-        width: 0.7rem;
-        height: 1.2rem;
-        vertical-align: -0.1em;
-        background: var(--accent1);
-        animation: blink 1s steps(2, start) infinite;
+        span {
+            display: inline-block;
+            width: 0.7rem;
+            height: 1.2rem;
+            vertical-align: -0.1em;
+            background: var(--accent1);
+            animation: blink 1s steps(2, start) infinite;
+        }
     }
 
     .menu-toggle {
@@ -115,22 +114,22 @@ const links = [
         border-bottom: 3px solid var(--border);
         background: var(--panel);
         box-shadow: 0 6px 0 var(--shadow);
-    }
 
-    .nav-links.open {
-        display: flex;
-    }
+        &.open {
+            display: flex;
+        }
 
-    .nav-links a {
-        display: block;
-        padding: 0.9rem 1.5rem;
-        border-top: 2px dashed var(--line);
-    }
+        a {
+            display: block;
+            padding: 0.9rem 1.5rem;
+            border-top: 2px dashed var(--line);
 
-    .nav-links a:hover {
-        background: var(--accent1);
-        color: var(--panel);
-        border-color: var(--accent1);
+            &:hover {
+                background: var(--accent1);
+                color: var(--panel);
+                border-color: var(--accent1);
+            }
+        }
     }
 
     .theme-toggle {
@@ -140,23 +139,23 @@ const links = [
         width: 100%;
         padding: 0.5rem 1.5rem;
         border-top: 3px solid var(--border);
-    }
 
-    .theme-toggle span::before {
-        content: "theme";
-        color: var(--dim);
-    }
+        span::before {
+            content: "theme";
+            color: var(--dim);
+        }
 
-    .theme-toggle button {
-        padding: 0.2rem 0.8rem;
-        border: 2px solid transparent;
-        color: var(--accent1);
-        transform: none;
-        box-shadow: none;
-    }
+        button {
+            padding: 0.2rem 0.8rem;
+            border: 2px solid transparent;
+            color: var(--accent1);
+            transform: none;
+            box-shadow: none;
 
-    .theme-toggle button:hover {
-        border-color: var(--accent2);
+            &:hover {
+                border-color: var(--accent2);
+            }
+        }
     }
 
     @keyframes blink {
@@ -178,17 +177,17 @@ const links = [
             gap: 0.5rem;
             border: none;
             box-shadow: none;
-        }
 
-        .nav-links a {
-            padding: 0.2rem 0.8rem;
-            border: 2px solid transparent;
-        }
+            a {
+                padding: 0.2rem 0.8rem;
+                border: 2px solid transparent;
 
-        .nav-links a:hover {
-            border-color: var(--accent2);
-            background: transparent;
-            color: var(--accent2);
+                &:hover {
+                    border-color: var(--accent2);
+                    background: transparent;
+                    color: var(--accent2);
+                }
+            }
         }
 
         .theme-toggle {
@@ -196,17 +195,17 @@ const links = [
             padding: 0;
             border: none;
             gap: 0.5rem;
-        }
 
-        .theme-toggle span {
-            display: block;
-            height: 2rem;
-            margin-inline: 0.5rem;
-            border-left: 2px dashed var(--line);
-        }
+            span {
+                display: block;
+                height: 2rem;
+                margin-inline: 0.5rem;
+                border-left: 2px dashed var(--line);
 
-        .theme-toggle span::before {
-            content: none;
+                &::before {
+                    content: none;
+                }
+            }
         }
     }
 </style>
