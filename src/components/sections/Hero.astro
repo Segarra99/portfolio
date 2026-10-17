@@ -1,39 +1,162 @@
 ---
+import Window from "../ui/Window.astro";
 ---
 
 <section id="hero">
-    <img src="images/profile_pic.jpg" />
-    <div>
-        <p>$ whoami</p>
-        <h1>MANUEL SEGARRA</h1>
-        <h2>software-engineer</h2>
-        <p>
-            I take projects from the first line of code to production, working
-            across backend systems, cloud infrastructure, and frontend
-            interfaces, from greenfield development to established production
-            environments.
-        </p>
-    </div>
+    <header>
+        <Window title="photo.png">
+            <div class="frame">
+                <img src="images/profile_pic.jpg" />
+            </div>
+        </Window>
+        <div class="intro">
+            <span>$ whoami</span>
+            <h1>
+                MANUEL
+                <br />
+                SEGARRA
+            </h1>
+            <h2>software-engineer</h2>
+            <p>
+                I have worked on backend systems, cloud infrastructure and
+                frontend interfaces since 2023. Led a team through an iGaming
+                platform, from first line of code to production.
+            </p>
+        </div>
+    </header>
     <nav>
-        <a href="#projects">>./projects</a>
-        <button>cv.pdf</button>
+        <a href="#projects">./projects</a>
+        <a href="./cv.pdf" download>
+            cv.pdf
+        </a>
     </nav>
-    <div>
-        <div>
-            <p>experience</p>
-            <p>3+ years</p>
+    <dl>
+        <div class="card">
+            <dt>experience</dt>
+            <dd>3+ years</dd>
         </div>
-        <div>
-            <p>location</p>
-            <p>Lisbon, PT</p>
+        <div class="card">
+            <dt>location</dt>
+            <dd>Lisbon, PT</dd>
         </div>
-        <div>
-            <p>languages</p>
-            <p>PT, EN</p>
+        <div class="card">
+            <dt>languages</dt>
+            <dd>PT, EN</dd>
         </div>
-        <div>
-            <p>timezone</p>
-            <p>WET, (UTC+0/+1)</p>
+        <div class="card">
+            <dt>timezone</dt>
+            <dd>
+                <span class="timezone-full">WET (UTC+0/+1)</span>
+                <span class="timezone-short">UTC+0/+1</span>
+            </dd>
         </div>
-    </div>
+    </dl>
 </section>
+
+<style>
+    section {
+        padding-top: 2rem;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 1.5rem;
+    }
+
+    img {
+        width: clamp(160px, 20vw, 340px);
+        outline: 3px dashed var(--accent1);
+    }
+
+    h1 {
+        font-size: clamp(3rem, 10vw, 6rem);
+        font-weight: 400;
+        letter-spacing: 0.15rem;
+        line-height: 1;
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-size: clamp(1.5rem, 50%, 2.5rem);
+        color: var(--accent2);
+        margin: 0;
+        margin-bottom: 0.7rem;
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        margin-bottom: 3rem;
+
+        & a {
+            background-color: var(--accent2);
+            color: var(--panel);
+            border: 3px solid var(--border);
+            padding-block: 0.5rem;
+            text-align: center;
+            box-shadow: 5px 5px var(--shadow);
+
+            &:hover {
+                background-color: var(--accent1);
+                box-shadow: 3px 3px 0 var(--shadow);
+                transform: translate(2px, 2px);
+            }
+
+            &[download] {
+                background-color: var(--panel);
+                color: var(--border);
+            }
+        }
+    }
+
+    dl {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: stretch;
+        gap: 1.2rem;
+
+        .card {
+            background-color: var(--panel);
+            border: 3px solid var(--border);
+            box-shadow: 5px 5px var(--shadow);
+            padding: 0.5rem 0.6rem;
+
+            dt {
+                color: var(--accent1);
+                font-size: 1.15rem;
+                margin-bottom: 0.1rem;
+            }
+
+            dd {
+                color: var(--accent2);
+                margin: 0;
+
+                .timezone-full {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .frame {
+        padding: 1.2rem;
+        background-color: var(--bg);
+    }
+
+    .intro {
+        & span {
+            display: block;
+            color: var(--accent1);
+            margin-bottom: 0.6rem;
+        }
+
+        & p {
+            margin: 0;
+            margin-bottom: 1.75rem;
+        }
+    }
+</style>
