@@ -23,7 +23,7 @@ const { category, skills } = Astro.props.group;
 
 <style>
     details[open] .indicator::before {
-        content: "[+]";
+        content: "[-]";
     }
 
     summary {
@@ -37,7 +37,7 @@ const { category, skills } = Astro.props.group;
             color: var(--accent1);
 
             &::before {
-                content: "[-]";
+                content: "[+]";
             }
         }
 
