@@ -6,7 +6,7 @@ import Window from "../ui/Window.astro";
     <header>
         <Window title="photo.png">
             <div class="frame">
-                <img src="images/profile_pic.jpg" />
+                <img src="/images/profile_pic.jpg" />
             </div>
         </Window>
         <div class="intro">
@@ -24,7 +24,7 @@ import Window from "../ui/Window.astro";
             </p>
             <nav>
                 <a href="#projects">./projects</a>
-                <a href="./cv.pdf" download>
+                <a href="/cv.pdf" download="manuel-segarra-cv.pdf">
                     cv.pdf
                 </a>
             </nav>
@@ -66,8 +66,7 @@ import Window from "../ui/Window.astro";
         font-weight: 400;
         letter-spacing: 0.15rem;
         line-height: 1;
-        margin: 0;
-        margin-bottom: 1rem;
+        margin: 0 0 1rem;
     }
 
     h2 {
@@ -125,10 +124,6 @@ import Window from "../ui/Window.astro";
             dd {
                 color: var(--accent2);
                 margin: 0;
-
-                .timezone-full {
-                    display: none;
-                }
             }
         }
     }
@@ -151,24 +146,21 @@ import Window from "../ui/Window.astro";
         }
 
         p {
-            margin: 0;
-            margin-bottom: 1.75rem;
+            margin: 0 0 1.75rem;
         }
     }
 
-    @media (min-width: 420px) {
-        dl {
-            .card {
-                dd {
-                    .timezone-full {
-                        display: inline;
-                    }
+    .timezone-full {
+        display: none;
+    }
 
-                    .timezone-short {
-                        display: none;
-                    }
-                }
-            }
+    @media (min-width: 420px) {
+        .timezone-full {
+            display: inline;
+        }
+
+        .timezone-short {
+            display: none;
         }
     }
 
