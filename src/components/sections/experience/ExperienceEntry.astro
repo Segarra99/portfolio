@@ -4,17 +4,56 @@ type Props = {
     experience: Experience;
 };
 const { experience } = Astro.props;
+const { period, role, company, location, bullets } = experience;
 ---
 
 <article>
-    <p>{experience.period}</p>
-    <h3>{experience.role}</h3>
-    <h2>
-        {experience.company}, {experience.location}
-    </h2>
+    <span>{period}</span>
+    <h3>{role}</h3>
+    <h4>
+        {company}, {location}
+    </h4>
     <ul>
-        {experience.bullets.map((bullet) => (
+        {bullets.map((bullet) => (
             <li>{bullet}</li>
         ))}
     </ul>
 </article>
+
+<style>
+    article {
+        position: relative;
+    }
+
+    span {
+        color: var(--accent1);
+
+        &::before {
+            position: absolute;
+            content: "";
+            width: 1rem;
+            height: 1rem;
+            left: -2.35rem;
+            top: 8px;
+            background: var(--accent2);
+        }
+    }
+
+    h3 {
+        font-size: clamp(1.6rem, 3vw, 1.9rem);
+        font-weight: 500;
+        margin: 0;
+    }
+
+    h4 {
+        color: var(--accent2);
+        font-weight: 500;
+        margin: 0 0 0.4rem;
+    }
+
+    ul {
+        list-style: square;
+        color: var(--sub);
+        padding-left: 1.3rem;
+    }
+</style>
