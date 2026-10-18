@@ -17,28 +17,42 @@ const { title, image, description, technologies, live, code, product } =
                 <h3>{title}</h3>
                 <p>{description}</p>
             </div>
-            <ul>
-                {technologies.map((tech) => (
-                    <li>{tech}</li>
-                ))}
-            </ul>
-            <nav>
-                {live && (
-                    <a href={live} target="_blank" rel="noopener noreferrer">
-                        {"> live"}
-                    </a>
-                )}
-                {code && (
-                    <a href={code} target="_blank" rel="noopener noreferrer">
-                        {"> code"}
-                    </a>
-                )}
-                {product && (
-                    <a href={product} target="_blank" rel="noopener noreferrer">
-                        {"> product"}
-                    </a>
-                )}
-            </nav>
+            <div>
+                <ul>
+                    {technologies.map((tech) => (
+                        <li>{tech}</li>
+                    ))}
+                </ul>
+                <nav>
+                    {live && (
+                        <a
+                            href={live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {"> live"}
+                        </a>
+                    )}
+                    {code && (
+                        <a
+                            href={code}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {"> code"}
+                        </a>
+                    )}
+                    {product && (
+                        <a
+                            href={product}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {"> product"}
+                        </a>
+                    )}
+                </nav>
+            </div>
         </div>
     </Window>
 </article>
