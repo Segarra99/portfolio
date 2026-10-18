@@ -1,46 +1,40 @@
 ---
+import Window from "../components/ui/Window.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-    <span>
+    <p class="prompt">
         $ cd <span data-path>/the-page-you-wanted</span>
-    </span>
+    </p>
     <h1>404</h1>
-    <span>page-not-found</span>
-    <p>
+    <span class="error-code">page-not-found</span>
+    <p class="description">
         That address doesn't exist, or it has been moved. These are the pages
         that do.
     </p>
-    <div class="box">
-        <span>error.log</span>
-        <p>
-            $ cd <span data-path>/the-page-you-wanted</span>
-        </p>
-        <p>
-            bash: cd: <span data-path>/the-page-you-wanted</span>: No such file
-            or directory
-        </p>
-        <p>$ ls ~</p>
-        <ul>
-            <li>
+    <Window title="error.log">
+        <div class="wrapper">
+            <p class="command">
+                cd <span data-path>/the-page-you-wanted</span>
+            </p>
+            <p class="output">
+                bash: cd: <span data-path>/the-page-you-wanted</span>: No such
+                file or directory
+            </p>
+            <p class="command">ls ~</p>
+            <nav>
                 <a href="/#about">about/</a>
-            </li>
-            <li>
                 <a href="/#projects">projects/</a>
-            </li>
-            <li>
                 <a href="/#experience">experience/</a>
-            </li>
-            <li>
                 <a href="/#skills">skills/</a>
-            </li>
-            <li>
                 <a href="/#contact">contact/</a>
-            </li>
-        </ul>
-    </div>
-    <a href="/">cd ~</a>
+            </nav>
+        </div>
+    </Window>
+    <a href="/" class="back-link">
+        cd ~
+    </a>
 </Layout>
 
 <script>
@@ -58,3 +52,83 @@ import Layout from "../layouts/Layout.astro";
         element.textContent = path;
     });
 </script>
+
+<style>
+    h1 {
+        color: var(--accent2);
+        font-size: clamp(4.5rem, 14vw, 11rem);
+        line-height: 1;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1.5rem;
+        margin-top: 0.5rem;
+
+        a {
+            color: var(--accent1);
+
+            &:hover {
+                color: var(--bg);
+                background-color: var(--accent1);
+            }
+        }
+    }
+
+    .prompt {
+        color: var(--accent1);
+        margin: 0;
+    }
+
+    .error-code {
+        color: var(--accent2);
+        font-size: clamp(1.5rem, 2.5vw, 2.375rem);
+        margin: 0;
+    }
+
+    .description {
+        color: var(--sub);
+        max-width: 35rem;
+        margin: 0.7rem 0 2rem;
+    }
+
+    .wrapper {
+        padding: 1rem;
+        max-width: 47rem;
+    }
+
+    .command {
+        color: var(--text);
+        margin: 0;
+
+        &::before {
+            content: "$ ";
+            color: var(--accent1);
+        }
+    }
+
+    .output {
+        color: var(--dim);
+        margin: 0 0 1rem;
+    }
+
+    .back-link {
+        display: inline-block;
+        background-color: var(--accent2);
+        color: var(--panel);
+        border: 3px solid var(--border);
+        padding: 0.5rem 1.2rem;
+        text-align: center;
+        box-shadow: 5px 5px var(--shadow);
+        margin-top: 2rem;
+
+        &:hover {
+            background-color: var(--accent1);
+            box-shadow: 3px 3px 0 var(--shadow);
+            transform: translate(2px, 2px);
+        }
+    }
+</style>
