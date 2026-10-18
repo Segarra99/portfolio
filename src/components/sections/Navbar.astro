@@ -9,7 +9,7 @@ const links = [
 ---
 
 <nav>
-    <a class="brand" href="/">
+    <a class="brand" href={Astro.url.pathname === "/" ? "#top" : "/"}>
         segarra@dev:~$<span></span>
     </a>
 
