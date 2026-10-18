@@ -1,25 +1,77 @@
 ---
+import Window from "../ui/Window.astro";
 ---
 
 <section id="contact">
-    <h2>$ ./contact</h2>
-    <div class="box">
-        <span>contact.sh</span>
-        <div>
-            <p>echo "open to new challenges."</p>
-            <ul>
-                <li>
-                    <a href="mailto:portfolio@manuelsegarra.com">email</a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/manuel-segarra">
-                        linkedin
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.github.com/segarra99">github</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <h2>./contact</h2>
+    <Window title="contact.sh">
+        <p>echo "open to software engineering roles."</p>
+        <nav>
+            <a href="mailto:portfolio@manuelsegarra.com" class="primary">
+                email
+            </a>
+            <a href="https://linkedin.com/in/manuel-segarra">linkedin</a>
+            <a href="https://github.com/segarra99">github</a>
+        </nav>
+    </Window>
 </section>
+
+<style>
+    section {
+        margin-bottom: 3.7rem;
+    }
+
+    h2 {
+        color: var(--accent2);
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 500;
+        margin: 3rem 0 1.5rem;
+
+        &:before {
+            content: "$ ";
+            color: var(--accent1);
+        }
+    }
+
+    p {
+        color: var(--text);
+        font-size: 1.8rem;
+        margin: 1.5rem;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 0 1.5rem 2rem;
+
+        a {
+            background-color: var(--panel);
+            color: var(--border);
+            border: 3px solid var(--border);
+            padding: 0.5rem 1.2rem;
+            text-align: center;
+            box-shadow: 5px 5px var(--shadow);
+
+            &:hover {
+                box-shadow: 3px 3px 0 var(--shadow);
+                transform: translate(2px, 2px);
+            }
+
+            &.primary {
+                background-color: var(--accent2);
+                color: var(--panel);
+
+                &:hover {
+                    background-color: var(--accent1);
+                }
+            }
+        }
+    }
+
+    @media (min-width: 700px) {
+        nav {
+            flex-direction: row;
+        }
+    }
+</style>
