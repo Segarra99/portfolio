@@ -23,7 +23,7 @@ export const projects: Project[] = [
             "Spotify integration inside BMW and Rolls-Royce infotainment systems. Owned releases and deployment pipelines.",
         image: "images/projects/connected-music.png",
         technologies: ["TypeScript", "GitHub", "Python", "Linux", "Kanban"],
-        product: "https://www.bmw.co.uk/en/shop/ls/dp/Base_Connected_Music_gb",
+        product: "https://bmw.co.uk/en/shop/ls/dp/Base_Connected_Music_gb",
     },
     {
         title: "Trip Planner",
@@ -37,7 +37,7 @@ export const projects: Project[] = [
             "PostgreSQL",
             "PostGIS",
         ],
-        code: "https://www.github.com/segarra99/trip-planner.git",
+        code: "https://github.com/segarra99/trip-planner.git",
     },
     {
         title: "Odds Feed Risk Guard",
@@ -45,6 +45,6 @@ export const projects: Project[] = [
             "Node.js service that processes real-time sports odds, validating incoming data to prevent inconsistent or incorrect odds from reaching downstream consumers and trading systems.",
         image: "images/projects/odds-feed-risk-guard.gif",
         technologies: ["WebSockets", "Typescript", "Zod", "npm"],
-        code: "https://www.github.com/segarra99/odds-feed-risk-guard.git",
+        code: "https://github.com/segarra99/odds-feed-risk-guard.git",
     },
 ];
