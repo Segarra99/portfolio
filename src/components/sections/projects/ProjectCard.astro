@@ -1,23 +1,98 @@
 ---
+import Window from "../../ui/Window.astro";
 import type { Project } from "../../../data/projects";
+
 type Props = {
     project: Project;
 };
 const { project } = Astro.props;
+const { title, image, description, technologies, live, code, product } =
+    project;
 ---
 
-<article class="box">
-    <p>{project.title.toLowerCase()}/</p>
-    <img src={project.image} />
-    <h2>{project.title}</h2>
-    <p>{project.description}</p>
-    <ul>
-        {project.technologies.map((tech) => (
-            <li>{tech}</li>
-        ))}
-    </ul>
-    <div>
-        {project.demo && <a href={project.demo}>> live</a>}
-        {project.github && <a href={project.github}>> code</a>}
-    </div>
+<article>
+    <Window title={title.toLowerCase() + "/"}>
+        <img src={image} />
+        <div class="info">
+            <div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+            </div>
+            <ul>
+                {technologies.map((tech) => (
+                    <li>{tech}</li>
+                ))}
+            </ul>
+            <nav>
+                {live && (
+                    <a href={live} target="_blank" rel="noopener noreferrer">
+                        {"> live"}
+                    </a>
+                )}
+                {code && (
+                    <a href={code} target="_blank" rel="noopener noreferrer">
+                        {"> code"}
+                    </a>
+                )}
+                {product && (
+                    <a href={product} target="_blank" rel="noopener noreferrer">
+                        {"> product"}
+                    </a>
+                )}
+            </nav>
+        </div>
+    </Window>
 </article>
+
+<style>
+    article {
+        display: flex;
+        height: 100%;
+    }
+
+    h3 {
+        color: var(--accent2);
+        margin: 0 0 0.4rem 0;
+    }
+
+    img {
+        aspect-ratio: 16 / 9;
+        border-bottom: 3px solid var(--border);
+    }
+
+    p {
+        color: var(--text);
+        margin: 0 0 0.75rem 0;
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            color: var(--accent1);
+            font-size: 1.25rem;
+            border: 2px solid var(--accent1);
+            padding: 0 0.5rem;
+            margin: 0 0.4rem 0.4rem 0;
+        }
+    }
+
+    nav {
+        color: var(--accent1);
+        margin-top: 0.4rem;
+
+        a:hover {
+            color: var(--panel);
+            background-color: var(--accent1);
+        }
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem;
+        flex-grow: 1;
+    }
+</style>

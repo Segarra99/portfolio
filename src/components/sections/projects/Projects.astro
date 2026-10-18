@@ -4,7 +4,7 @@ import ProjectCard from "./ProjectCard.astro";
 ---
 
 <section id="projects">
-    <h2>$ ls ./projects</h2>
+    <h2>ls ./projects</h2>
     <ul>
         {projects.map((project) => (
             <li>
@@ -13,3 +13,28 @@ import ProjectCard from "./ProjectCard.astro";
         ))}
     </ul>
 </section>
+
+<style>
+    h2 {
+        color: var(--accent2);
+        font-size: 28px;
+        margin: 3rem 0 1rem 0;
+
+        &:before {
+            content: "$ ";
+            color: var(--accent1);
+        }
+    }
+
+    ul {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+
+    @media (min-width: 760px) {
+        ul {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>
