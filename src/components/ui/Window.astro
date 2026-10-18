@@ -20,8 +20,12 @@ const { title } = Astro.props;
         if (!toggle || !content) return;
 
         toggle.addEventListener("click", () => {
-            const isCollapsed = content.classList.toggle("collapsed");
-            toggle.textContent = isCollapsed ? "[+]" : "[-]";
+            const isCollapsing = !content.classList.contains("collapsed");
+
+            window.style.width = isCollapsing ? "100%" : "";
+
+            content.classList.toggle("collapsed");
+            toggle.textContent = isCollapsing ? "[+]" : "[-]";
         });
     });
 </script>
@@ -60,7 +64,7 @@ const { title } = Astro.props;
         background-color: var(--panel);
 
         &.collapsed {
-            visibility: hidden;
+            display: none;
         }
     }
 
