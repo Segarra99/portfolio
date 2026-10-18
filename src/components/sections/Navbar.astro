@@ -41,6 +41,13 @@ const links = [
             const isOpen = navLinks.classList.toggle("open");
             menuToggle.textContent = isOpen ? "[ close ]" : "[ menu ]";
         });
+
+        navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("open");
+                menuToggle.textContent = "[ menu ]";
+            });
+        });
     }
 
     // theme
