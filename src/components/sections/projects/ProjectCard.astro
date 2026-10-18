@@ -5,9 +5,8 @@ import type { Project } from "../../../data/projects";
 type Props = {
     project: Project;
 };
-const { project } = Astro.props;
 const { title, image, description, technologies, live, code, product } =
-    project;
+    Astro.props.project;
 ---
 
 <article>
@@ -53,7 +52,7 @@ const { title, image, description, technologies, live, code, product } =
     h3 {
         color: var(--accent2);
         font-weight: 500;
-        margin: 0 0 0.4rem 0;
+        margin: 0 0 0.4rem;
     }
 
     img {
@@ -63,7 +62,7 @@ const { title, image, description, technologies, live, code, product } =
 
     p {
         color: var(--sub);
-        margin: 0 0 0.75rem 0;
+        margin: 0 0 0.75rem;
     }
 
     ul {

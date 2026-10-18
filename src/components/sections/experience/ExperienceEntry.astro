@@ -3,8 +3,7 @@ import type { Experience } from "../../../data/experience";
 type Props = {
     experience: Experience;
 };
-const { experience } = Astro.props;
-const { period, role, company, location, bullets } = experience;
+const { period, role, company, location, bullets } = Astro.props.experience;
 ---
 
 <article>

@@ -68,7 +68,7 @@ const links = [
             localStorage.setItem("theme", theme);
             themeToggle.textContent = `[${theme}]`;
 
-            // remove theme switch class after anumation is over (timeout matches global css rule)
+            // remove theme switch class after animation is over (timeout matches global css rule)
             setTimeout(() => {
                 root.classList.remove("theme-switch");
             }, 500);
