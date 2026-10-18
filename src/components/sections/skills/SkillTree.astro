@@ -3,28 +3,59 @@ import type { SkillGroup } from "../../../data/skills";
 type Props = {
     group: SkillGroup;
 };
-const { group } = Astro.props;
+const { category, skills } = Astro.props.group;
 ---
 
 <details open>
     <summary>
-        <span>[-]</span>
-        <span>{group.category}/</span>
-        <span>({group.skills.length})</span>
+        <span class="indicator"></span>
+        <span class="category">{category}/</span>
+        <span class="length">({skills.length})</span>
     </summary>
     <ul>
-        {group.skills.map((skill, index, array) => (
-            <li>
-                {index === array.length - 1 ? "`--" : "|---"} {skill.name}
+        {skills.map((skill, index, array) => (
+            <li class:list={{ highlight: skill.highlighted }}>
+                {index === array.length - 1 ? "`--" : "|--"} {skill.name}
             </li>
         ))}
     </ul>
 </details>
 
 <style>
+    details[open] .indicator::before {
+        content: "[+]";
+    }
+
     summary {
+        display: flex;
+        gap: 0.7rem;
         list-style: none;
         cursor: pointer;
         user-select: none;
+
+        .indicator {
+            color: var(--accent1);
+
+            &::before {
+                content: "[-]";
+            }
+        }
+
+        .category {
+            color: var(--accent2);
+        }
+
+        .length {
+            color: var(--dim);
+        }
+    }
+
+    ul {
+        color: var(--sub);
+        padding-left: 2rem;
+
+        .highlight {
+            color: var(--accent1);
+        }
     }
 </style>

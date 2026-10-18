@@ -1,12 +1,12 @@
 ---
 import { skills } from "../../../data/skills";
+import Window from "../../ui/Window.astro";
 import SkillTree from "./SkillTree.astro";
 ---
 
 <section id="skills">
-    <h2>$ tree skills/</h2>
-    <div class="box">
-        <span>skills/</span>
+    <h2>tree skills/</h2>
+    <Window title="skills/">
         <ul>
             {skills.map((group) => (
                 <li>
@@ -14,5 +14,32 @@ import SkillTree from "./SkillTree.astro";
                 </li>
             ))}
         </ul>
-    </div>
+    </Window>
 </section>
+
+<style>
+    h2 {
+        color: var(--accent2);
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 500;
+        margin: 3rem 0 1.5rem;
+
+        &:before {
+            content: "$ ";
+            color: var(--accent1);
+        }
+    }
+
+    ul {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 1.4rem 1.5rem;
+        gap: 2rem 8rem;
+    }
+
+    @media (min-width: 700px) {
+        ul {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>
