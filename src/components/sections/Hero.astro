@@ -22,14 +22,14 @@ import Window from "../ui/Window.astro";
                 frontend interfaces since 2023. Led a team through an iGaming
                 platform, from first line of code to production.
             </p>
+            <nav>
+                <a href="#projects">./projects</a>
+                <a href="./cv.pdf" download>
+                    cv.pdf
+                </a>
+            </nav>
         </div>
     </header>
-    <nav>
-        <a href="#projects">./projects</a>
-        <a href="./cv.pdf" download>
-            cv.pdf
-        </a>
-    </nav>
     <dl>
         <div class="card">
             <dt>experience</dt>
@@ -54,10 +54,6 @@ import Window from "../ui/Window.astro";
 </section>
 
 <style>
-    section {
-        padding-top: 2rem;
-    }
-
     header {
         display: grid;
         grid-template-columns: 1fr;
@@ -65,13 +61,8 @@ import Window from "../ui/Window.astro";
         gap: 1.5rem;
     }
 
-    img {
-        width: clamp(160px, 20vw, 340px);
-        outline: 3px dashed var(--accent1);
-    }
-
     h1 {
-        font-size: clamp(3rem, 10vw, 6rem);
+        font-size: clamp(3rem, 6vw, 6.5rem);
         font-weight: 400;
         letter-spacing: 0.15rem;
         line-height: 1;
@@ -80,23 +71,23 @@ import Window from "../ui/Window.astro";
     }
 
     h2 {
-        font-size: clamp(1.5rem, 50%, 2.5rem);
+        font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+        font-weight: 400;
         color: var(--accent2);
         margin: 0;
         margin-bottom: 0.7rem;
     }
 
     nav {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 1.2rem;
-        margin-bottom: 3rem;
 
-        & a {
+        a {
             background-color: var(--accent2);
             color: var(--panel);
             border: 3px solid var(--border);
-            padding-block: 0.5rem;
+            padding: 0.5rem 1.2rem;
             text-align: center;
             box-shadow: 5px 5px var(--shadow);
 
@@ -116,8 +107,8 @@ import Window from "../ui/Window.astro";
     dl {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        justify-items: stretch;
         gap: 1.2rem;
+        margin-top: 3rem;
 
         .card {
             background-color: var(--panel);
@@ -145,18 +136,61 @@ import Window from "../ui/Window.astro";
     .frame {
         padding: 1.2rem;
         background-color: var(--bg);
+
+        img {
+            width: clamp(160px, 20vw, 340px);
+            outline: 3px dashed var(--accent1);
+        }
     }
 
     .intro {
-        & span {
+        span {
             display: block;
             color: var(--accent1);
             margin-bottom: 0.6rem;
         }
 
-        & p {
+        p {
             margin: 0;
             margin-bottom: 1.75rem;
+        }
+    }
+
+    @media (min-width: 420px) {
+        dl {
+            .card {
+                dd {
+                    .timezone-full {
+                        display: inline;
+                    }
+
+                    .timezone-short {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 760px) {
+        header {
+            grid-template-columns: 1.5fr 1fr;
+            align-items: center;
+
+            .intro {
+                grid-row: 1;
+                grid-column: 1;
+
+                nav {
+                    flex-direction: row;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 840px) {
+        dl {
+            grid-template-columns: repeat(4, 1fr);
         }
     }
 </style>

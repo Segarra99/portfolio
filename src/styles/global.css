@@ -103,6 +103,8 @@ ol {
 }
 
 .container {
-    width: min(100% - 2.1rem, 77rem);
+    padding-inline: clamp(1rem, 4vw, 3rem);
+    padding-top: clamp(2.25rem, 4vw, 4rem);
+    max-width: 1320px;
     margin-inline: auto;
 }
