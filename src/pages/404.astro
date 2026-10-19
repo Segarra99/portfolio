@@ -23,7 +23,7 @@ import Layout from "../layouts/Layout.astro";
                 file or directory
             </p>
             <p class="command">ls ~</p>
-            <nav>
+            <nav aria-label="Available pages">
                 <a href="/#about">about/</a>
                 <a href="/#projects">projects/</a>
                 <a href="/#experience">experience/</a>
@@ -71,7 +71,7 @@ import Layout from "../layouts/Layout.astro";
         a {
             color: var(--accent1);
 
-            &:hover {
+            &:focus-visible {
                 color: var(--bg);
                 background-color: var(--accent1);
             }
@@ -125,7 +125,20 @@ import Layout from "../layouts/Layout.astro";
         box-shadow: 5px 5px var(--shadow);
         margin-top: 2rem;
 
-        &:hover {
+        &:focus-visible {
+            background-color: var(--accent1);
+            box-shadow: 3px 3px 0 var(--shadow);
+            transform: translate(2px, 2px);
+        }
+    }
+
+    @media (hover: hover) {
+        nav a:hover {
+            color: var(--bg);
+            background-color: var(--accent1);
+        }
+
+        .back-link:hover {
             background-color: var(--accent1);
             box-shadow: 3px 3px 0 var(--shadow);
             transform: translate(2px, 2px);
