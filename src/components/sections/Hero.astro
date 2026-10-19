@@ -6,7 +6,7 @@ import Window from "../ui/Window.astro";
     <header>
         <Window title="photo.png">
             <div class="frame">
-                <img src="/images/profile_pic.jpg" />
+                <img src="/images/profile_pic.jpg" alt="Profile picture" />
             </div>
         </Window>
         <div class="intro">
@@ -22,7 +22,7 @@ import Window from "../ui/Window.astro";
                 frontend interfaces since 2023. Led a team through an iGaming
                 platform, from first line of code to production.
             </p>
-            <nav>
+            <nav aria-label="Introduction">
                 <a href="#projects">./projects</a>
                 <a href="/cv.pdf" download="manuel-segarra-cv.pdf">
                     cv.pdf
@@ -89,7 +89,8 @@ import Window from "../ui/Window.astro";
             text-align: center;
             box-shadow: 5px 5px var(--shadow);
 
-            &:hover {
+            &:hover,
+            &:focus-visible {
                 background-color: var(--accent1);
                 box-shadow: 3px 3px 0 var(--shadow);
                 transform: translate(2px, 2px);
