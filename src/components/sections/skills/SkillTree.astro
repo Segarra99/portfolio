@@ -8,7 +8,7 @@ const { category, skills } = Astro.props.group;
 
 <details open>
     <summary>
-        <span class="indicator"></span>
+        <span class="indicator" aria-hidden="true"></span>
         <span class="category">{category}/</span>
         <span class="length">({skills.length})</span>
     </summary>
@@ -32,6 +32,16 @@ const { category, skills } = Astro.props.group;
         list-style: none;
         cursor: pointer;
         user-select: none;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover .indicator,
+        &:focus-visible .indicator {
+            background-color: var(--accent1);
+            color: var(--panel);
+        }
 
         .indicator {
             color: var(--accent1);
