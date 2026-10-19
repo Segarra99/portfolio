@@ -11,7 +11,7 @@ const { title, image, description, technologies, live, code, product } =
 
 <article>
     <Window title={title.toLowerCase() + "/"}>
-        <img src={image} />
+        <img src={image} alt={`${title} project screenshot`} />
         <div class="info">
             <div>
                 <h3>{title}</h3>
@@ -23,7 +23,7 @@ const { title, image, description, technologies, live, code, product } =
                         <li>{tech}</li>
                     ))}
                 </ul>
-                <nav>
+                <nav aria-label={`${title} links`}>
                     {live && (
                         <a
                             href={live}
@@ -89,6 +89,12 @@ const { title, image, description, technologies, live, code, product } =
             border: 2px solid var(--accent1);
             padding: 0 0.5rem;
             margin: 0 0.4rem 0.4rem 0;
+
+            &:hover {
+                color: var(--accent2);
+                border-color: var(--accent2);
+                user-select: none;
+            }
         }
     }
 
@@ -96,9 +102,12 @@ const { title, image, description, technologies, live, code, product } =
         color: var(--accent1);
         margin-top: 0.4rem;
 
-        a:hover {
-            color: var(--panel);
-            background-color: var(--accent1);
+        a {
+            &:hover,
+            &:focus-visible {
+                color: var(--panel);
+                background-color: var(--accent1);
+            }
         }
     }
 
