@@ -30,10 +30,14 @@ const ogImage = new URL(image, Astro.site);
 
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta name="author" content="Manuel Segarra" />
         {noindex && <meta name="robots" content="noindex" />}
         {!noindex && <link rel="canonical" href={canonical} />}
 
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="profile" />
+        <meta property="profile:first_name" content="Manuel" />
+        <meta property="profile:last_name" content="Segarra" />
+
         <meta property="og:title" content={title} />
         <meta property="og:site_name" content="Manuel Segarra" />
         <meta property="og:description" content={description} />
@@ -53,7 +57,7 @@ const ogImage = new URL(image, Astro.site);
             href="/fonts/scientifica.woff2"
             as="font"
             type="font/woff2"
-            crossorigin
+            crossorigin=""
         />
 
         <script is:inline>
