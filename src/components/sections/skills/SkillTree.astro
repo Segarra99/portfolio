@@ -37,17 +37,16 @@ const { category, skills } = Astro.props.group;
             outline: none;
         }
 
-        &:focus-visible,
-        &:active .indicator {
-            background-color: var(--accent1);
-            color: var(--panel);
-        }
-
         .indicator {
             color: var(--accent1);
 
             &::before {
                 content: "[+]";
+            }
+
+            summary:is(:focus-visible, :active) & {
+                background-color: var(--accent1);
+                color: var(--panel);
             }
         }
 
