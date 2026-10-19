@@ -239,7 +239,6 @@ const links = [
                 padding: 0.25rem 0.8rem;
                 border: 2px solid transparent;
 
-                &:hover,
                 &:focus-visible {
                     border-color: var(--accent2);
                     background: transparent;
@@ -267,12 +266,6 @@ const links = [
         }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-        .brand::after {
-            animation: none;
-        }
-    }
-
     @media (hover: hover) {
         .brand:hover {
             background: var(--accent1);
@@ -287,6 +280,20 @@ const links = [
 
         .theme-toggle button:hover {
             border-color: var(--accent2);
+        }
+    }
+
+    @media (min-width: 1080px) and (hover: hover) {
+        .nav-links a:hover {
+            border-color: var(--accent2);
+            background: transparent;
+            color: var(--accent2);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .brand::after {
+            animation: none;
         }
     }
 </style>
