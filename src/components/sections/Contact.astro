@@ -6,12 +6,29 @@ import Window from "../ui/Window.astro";
     <h2>./contact</h2>
     <Window title="contact.sh">
         <p>echo "open to software engineering roles."</p>
-        <nav>
-            <a href="mailto:portfolio@manuelsegarra.com" class="primary">
+        <nav aria-label="Contact links">
+            <a
+                class="primary"
+                href="mailto:portfolio@manuelsegarra.com"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 email
             </a>
-            <a href="https://linkedin.com/in/manuel-segarra">linkedin</a>
-            <a href="https://github.com/segarra99">github</a>
+            <a
+                href="https://linkedin.com/in/manuel-segarra"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                linkedin
+            </a>
+            <a
+                href="https://github.com/segarra99"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                github
+            </a>
         </nav>
     </Window>
 </section>
@@ -53,7 +70,8 @@ import Window from "../ui/Window.astro";
             text-align: center;
             box-shadow: 5px 5px var(--shadow);
 
-            &:hover {
+            &:hover,
+            &:focus-visible {
                 box-shadow: 3px 3px 0 var(--shadow);
                 transform: translate(2px, 2px);
             }
@@ -62,7 +80,8 @@ import Window from "../ui/Window.astro";
                 background-color: var(--accent2);
                 color: var(--panel);
 
-                &:hover {
+                &:hover,
+                &:focus-visible {
                     background-color: var(--accent1);
                 }
             }
