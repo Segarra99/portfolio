@@ -5,28 +5,32 @@ import Window from "../ui/Window.astro";
 <section id="about">
     <Window title="about.txt">
         <p>
-            I like owning a feature end to end: design, code, deployment and
-            monitoring. I have worked mostly in TypeScript but I'm comfortable
-            adapting to different languages and technologies. I like
-            understanding how things work before jumping into implementation,
-            exploring different approaches, and finding the right balance
-            between simplicity, efficiency, and maintainability. I'm always
-            looking for ways to improve things, even when they already work.
+            I'm curious by nature and enjoy understanding how things work,
+            trying different approaches, and finding the right balance between
+            simplicity, performance, and maintainability. I like taking
+            ownership of features from the initial design all the way to
+            deployment, and I'm always looking for ways to make things better. I
+            work mainly with TypeScript, but I'm not tied to any particular
+            stack. For me, the focus is on finding the right solution for the
+            problem at hand.
         </p>
-
         <p>
-            At PixBet I led the backend and cloud infrastructure for an iGaming
-            platform from conception to production. In 2025 I joined Devoteam to
-            work on a Critical TechWorks project, developing in-vehicle software
-            for BMW and Rolls-Royce.
+            My experience spans different domains and responsibilities. At
+            PixBet, I helped build an iGaming platform from scratch before
+            moving into a backend team lead role, overseeing architecture,
+            infrastructure, and production delivery. Later, at Critical
+            TechWorks, I worked on in-vehicle software for BMW and Rolls-Royce.
+            I enjoy solving complex technical problems, taking ownership of my
+            work, and seeing the results in production. I see challenges as
+            opportunities to learn, grow, and push beyond what I already know.
         </p>
-
         <p>
-            I'm curious by nature, which extends well beyond software. I enjoy
-            tinkering with computers and contributing to open source, but I also
-            like getting away from a screen to work on my car or play bass. I
-            love spending time outdoors, whether it's rock climbing or spending
-            a day fishing, and I'm always up for trying out new things.
+            Outside of work, I'm always finding something new to learn or tinker
+            with. That usually means messing around with computers, working on
+            my car, or exploring a new hobby. I also play bass, go rock
+            climbing, and enjoy spending time outdoors. Recently, I've picked up
+            fishing, which has been another fun thing to learn. I like having a
+            mix of interests and am always up for trying something different.
         </p>
     </Window>
 </section>
@@ -42,11 +46,25 @@ import Window from "../ui/Window.astro";
         color: var(--text);
 
         &:first-child {
-            padding-top: 1rem;
+            padding-top: 1.2rem;
         }
 
         &:last-child {
-            padding-bottom: 1rem;
+            padding-bottom: 1.2rem;
+        }
+
+        & + p {
+            position: relative;
+            padding-top: 1.5rem;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0.5rem;
+                left: 1.5rem;
+                right: 1.5rem;
+                border-top: 2px dashed var(--accent1);
+            }
         }
     }
 </style>
