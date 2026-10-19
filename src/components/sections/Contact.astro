@@ -70,7 +70,6 @@ import Window from "../ui/Window.astro";
             text-align: center;
             box-shadow: 5px 5px var(--shadow);
 
-            &:hover,
             &:focus-visible {
                 box-shadow: 3px 3px 0 var(--shadow);
                 transform: translate(2px, 2px);
@@ -80,7 +79,6 @@ import Window from "../ui/Window.astro";
                 background-color: var(--accent2);
                 color: var(--panel);
 
-                &:hover,
                 &:focus-visible {
                     background-color: var(--accent1);
                 }
@@ -91,6 +89,19 @@ import Window from "../ui/Window.astro";
     @media (min-width: 700px) {
         nav {
             flex-direction: row;
+        }
+    }
+
+    @media (hover: hover) {
+        nav a {
+            &:hover {
+                box-shadow: 3px 3px 0 var(--shadow);
+                transform: translate(2px, 2px);
+            }
+
+            &.primary:hover {
+                background-color: var(--accent1);
+            }
         }
     }
 </style>

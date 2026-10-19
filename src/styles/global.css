@@ -79,11 +79,6 @@ button {
     cursor: pointer;
     box-shadow: 5px 5px 0 var(--shadow);
 
-    &:hover {
-        transform: translate(2px, 2px);
-        box-shadow: 3px 3px 0 var(--shadow);
-    }
-
     &:focus-visible {
         transform: translate(2px, 2px);
         box-shadow: 3px 3px 0 var(--shadow);
@@ -117,4 +112,23 @@ ol {
     padding-top: clamp(2.25rem, 4vw, 4rem);
     max-width: 1320px;
     margin-inline: auto;
+}
+
+@media (hover: hover) {
+    button:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 3px 3px 0 var(--shadow);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    html.theme-switch *,
+    html.theme-switch *::before,
+    html.theme-switch *::after {
+        transition: none !important;
+    }
 }

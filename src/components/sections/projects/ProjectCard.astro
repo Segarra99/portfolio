@@ -89,12 +89,6 @@ const { title, image, description, technologies, live, code, product } =
             border: 2px solid var(--accent1);
             padding: 0 0.5rem;
             margin: 0 0.4rem 0.4rem 0;
-
-            &:hover {
-                color: var(--accent2);
-                border-color: var(--accent2);
-                user-select: none;
-            }
         }
     }
 
@@ -103,7 +97,6 @@ const { title, image, description, technologies, live, code, product } =
         margin-top: 0.4rem;
 
         a {
-            &:hover,
             &:focus-visible {
                 color: var(--panel);
                 background-color: var(--accent1);
@@ -117,5 +110,18 @@ const { title, image, description, technologies, live, code, product } =
         justify-content: space-between;
         padding: 1rem;
         flex-grow: 1;
+    }
+
+    @media (hover: hover) {
+        ul li:hover {
+            color: var(--accent2);
+            border-color: var(--accent2);
+            user-select: none;
+        }
+
+        nav a:hover {
+            color: var(--panel);
+            background-color: var(--accent1);
+        }
     }
 </style>

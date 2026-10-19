@@ -62,7 +62,6 @@ const contentId = `window-content-${crypto.randomUUID()}`;
         box-shadow: none;
         padding: 0;
 
-        &:hover,
         &:focus-visible {
             transform: none;
             background-color: var(--accent1);
@@ -104,6 +103,13 @@ const contentId = `window-content-${crypto.randomUUID()}`;
 
         &.collapsed {
             display: none;
+        }
+    }
+
+    @media (hover: hover) {
+        .toggle:hover {
+            transform: none;
+            background-color: var(--accent1);
         }
     }
 </style>

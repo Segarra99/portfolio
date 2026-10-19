@@ -16,6 +16,7 @@ const links = [
     <button
         class="menu-toggle"
         type="button"
+        aria-label="Open navigation"
         aria-expanded="false"
         aria-controls="nav-links"
     >
@@ -30,7 +31,7 @@ const links = [
         ))}
         <li class="theme-toggle">
             <span></span>
-            <button type="button"></button>
+            <button type="button" aria-label="Switch theme"></button>
         </li>
     </ul>
 </nav>
@@ -46,6 +47,7 @@ const links = [
             navLinks.classList.remove("open");
             menuToggle.textContent = "[ menu ]";
             menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation");
 
             if (restoreFocus) {
                 menuToggle.focus();
@@ -56,6 +58,10 @@ const links = [
             const isOpen = navLinks.classList.toggle("open");
             menuToggle.textContent = isOpen ? "[ close ]" : "[ menu ]";
             menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation" : "Open navigation",
+            );
         });
 
         navLinks.querySelectorAll("a").forEach((link) => {
@@ -106,7 +112,9 @@ const links = [
 
             const theme = root.dataset.theme === "light" ? "dark" : "light";
             root.dataset.theme = theme;
-            localStorage.setItem("theme", theme);
+            try {
+                localStorage.setItem("theme", theme);
+            } catch {}
 
             updateThemeButton();
 
@@ -140,16 +148,14 @@ const links = [
             animation: blink 1s steps(2, start) infinite;
         }
 
-        &:hover,
         &:focus-visible {
-            border-color: var(--accent1);
             background: var(--accent1);
             color: var(--panel);
         }
     }
 
     .menu-toggle {
-        padding: clamp(0.25rem, 1vw, 0.4rem) clamp(0.5rem, 2.5vw, 0.9rem);
+        padding: 0.34rem clamp(0.5rem, 2.8vw, 0.9rem);
         border: 3px solid var(--border);
         white-space: nowrap;
     }
@@ -174,7 +180,6 @@ const links = [
             padding: 0.9rem 1.5rem;
             border-top: 2px dashed var(--line);
 
-            &:hover,
             &:focus-visible {
                 background: var(--accent1);
                 color: var(--panel);
@@ -203,7 +208,6 @@ const links = [
             transform: none;
             box-shadow: none;
 
-            &:hover,
             &:focus-visible {
                 border-color: var(--accent2);
             }
@@ -229,9 +233,10 @@ const links = [
             gap: 0.3rem;
             border: none;
             box-shadow: none;
+            margin-block: 0.15rem;
 
             a {
-                padding: 0.2rem 0.8rem;
+                padding: 0.25rem 0.8rem;
                 border: 2px solid transparent;
 
                 &:hover,
@@ -265,6 +270,23 @@ const links = [
     @media (prefers-reduced-motion: reduce) {
         .brand::after {
             animation: none;
+        }
+    }
+
+    @media (hover: hover) {
+        .brand:hover {
+            background: var(--accent1);
+            color: var(--panel);
+        }
+
+        .nav-links a:hover {
+            background: var(--accent1);
+            color: var(--panel);
+            border-color: var(--accent1);
+        }
+
+        .theme-toggle button:hover {
+            border-color: var(--accent2);
         }
     }
 </style>
