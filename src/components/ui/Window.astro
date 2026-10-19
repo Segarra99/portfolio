@@ -62,7 +62,8 @@ const contentId = `window-content-${crypto.randomUUID()}`;
         box-shadow: none;
         padding: 0;
 
-        &:focus-visible {
+        &:focus-visible,
+        &:active {
             transform: none;
             background-color: var(--accent1);
         }

@@ -148,7 +148,8 @@ const links = [
             animation: blink 1s steps(2, start) infinite;
         }
 
-        &:focus-visible {
+        &:focus-visible,
+        &:active {
             background: var(--accent1);
             color: var(--panel);
         }
@@ -180,7 +181,8 @@ const links = [
             padding: 0.9rem 1.5rem;
             border-top: 2px dashed var(--line);
 
-            &:focus-visible {
+            &:focus-visible,
+            &:active {
                 background: var(--accent1);
                 color: var(--panel);
                 border-color: var(--accent1);
@@ -208,7 +210,8 @@ const links = [
             transform: none;
             box-shadow: none;
 
-            &:focus-visible {
+            &:focus-visible,
+            &:active {
                 border-color: var(--accent2);
             }
         }
@@ -239,7 +242,8 @@ const links = [
                 padding: 0.25rem 0.8rem;
                 border: 2px solid transparent;
 
-                &:focus-visible {
+                &:focus-visible,
+                &:active {
                     border-color: var(--accent2);
                     background: transparent;
                     color: var(--accent2);

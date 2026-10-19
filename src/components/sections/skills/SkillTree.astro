@@ -37,7 +37,8 @@ const { category, skills } = Astro.props.group;
             outline: none;
         }
 
-        &:focus-visible .indicator {
+        &:focus-visible,
+        &:active .indicator {
             background-color: var(--accent1);
             color: var(--panel);
         }

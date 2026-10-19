@@ -97,7 +97,8 @@ const { title, image, description, technologies, live, code, product } =
         margin-top: 0.4rem;
 
         a {
-            &:focus-visible {
+            &:focus-visible,
+            &:active {
                 color: var(--panel);
                 background-color: var(--accent1);
             }

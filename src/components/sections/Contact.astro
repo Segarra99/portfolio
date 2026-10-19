@@ -70,7 +70,8 @@ import Window from "../ui/Window.astro";
             text-align: center;
             box-shadow: 5px 5px var(--shadow);
 
-            &:focus-visible {
+            &:focus-visible,
+            &:active {
                 box-shadow: 3px 3px 0 var(--shadow);
                 transform: translate(2px, 2px);
             }
@@ -79,7 +80,8 @@ import Window from "../ui/Window.astro";
                 background-color: var(--accent2);
                 color: var(--panel);
 
-                &:focus-visible {
+                &:focus-visible,
+                &:active {
                     background-color: var(--accent1);
                 }
             }
