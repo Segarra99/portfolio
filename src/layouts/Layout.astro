@@ -15,18 +15,43 @@ import Header from "../components/sections/Header.astro";
         />
         <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
         <link rel="icon" href="/icons/favicon.ico" sizes="32x32" />
-        <link rel="/icons/apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
 
         <script is:inline>
-            const theme = localStorage.getItem("theme") || "dark";
-            document.documentElement.dataset.theme = theme;
+            try {
+                const theme = localStorage.getItem("theme") || "dark";
+                document.documentElement.dataset.theme = theme;
+            } catch {
+                document.documentElement.dataset.theme = "dark";
+            }
         </script>
     </head>
     <body>
+        <a class="skip-link" href="#main-content">
+            Skip to content
+        </a>
         <Header />
-        <main class="container">
+        <main id="main-content" class="container">
             <slot />
         </main>
         <Footer />
     </body>
 </html>
+
+<style>
+    .skip-link {
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        z-index: 1000;
+        padding: 0.6rem;
+        background: var(--panel);
+        color: var(--text);
+        border: 2px solid var(--accent1);
+        transform: translateY(-200%);
+    }
+
+    .skip-link:focus {
+        transform: translateY(0);
+    }
+</style>
