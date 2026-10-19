@@ -35,6 +35,7 @@ export const skills: SkillGroup[] = [
         skills: [
             { name: "CloudWatch" },
             { name: "EC2" },
+            { name: "ElastiCache" },
             { name: "Lambda", highlighted: true },
             { name: "RDS", highlighted: true },
             { name: "S3", highlighted: true },
@@ -88,10 +89,11 @@ export const skills: SkillGroup[] = [
     {
         category: "practices",
         skills: [
+            { name: "Architecture", highlighted: true },
             { name: "Kanban" },
+            { name: "Microservices" },
             { name: "OOP", highlighted: true },
             { name: "Scrum" },
-            { name: "Architecture", highlighted: true },
             { name: "TDD", highlighted: true },
         ],
     },
@@ -110,8 +112,6 @@ export const skills: SkillGroup[] = [
         skills: [
             { name: "ESLint" },
             { name: "Git", highlighted: true },
-            { name: "GitHub", highlighted: true },
-            { name: "GitLab", highlighted: true },
             { name: "npm", highlighted: true },
             { name: "Postman" },
             { name: "Prettier" },
