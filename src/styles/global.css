@@ -78,16 +78,26 @@ button {
     color: inherit;
     cursor: pointer;
     box-shadow: 5px 5px 0 var(--shadow);
-}
 
-button:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 3px 3px 0 var(--shadow);
+    &:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 3px 3px 0 var(--shadow);
+    }
+
+    &:focus-visible {
+        transform: translate(2px, 2px);
+        box-shadow: 3px 3px 0 var(--shadow);
+        outline: none;
+    }
 }
 
 a {
     color: inherit;
     text-decoration: none;
+
+    &:focus-visible {
+        outline: none;
+    }
 }
 
 img {

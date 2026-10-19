@@ -8,16 +8,21 @@ const links = [
 ];
 ---
 
-<nav>
+<nav aria-label="Main navigation">
     <a class="brand" href={Astro.url.pathname === "/" ? "#top" : "/"}>
         segarra@dev:~$
     </a>
 
-    <button class="menu-toggle" type="button">
+    <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-links"
+    >
         [ menu ]
     </button>
 
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
         {links.map(({ href, label }) => (
             <li>
                 <a href={href}>{label}</a>
@@ -37,16 +42,42 @@ const links = [
     const navLinks = document.querySelector<HTMLUListElement>(".nav-links");
 
     if (menuToggle && navLinks) {
+        const closeMenu = (restoreFocus = false) => {
+            navLinks.classList.remove("open");
+            menuToggle.textContent = "[ menu ]";
+            menuToggle.setAttribute("aria-expanded", "false");
+
+            if (restoreFocus) {
+                menuToggle.focus();
+            }
+        };
+
         menuToggle.addEventListener("click", () => {
             const isOpen = navLinks.classList.toggle("open");
             menuToggle.textContent = isOpen ? "[ close ]" : "[ menu ]";
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
         });
 
         navLinks.querySelectorAll("a").forEach((link) => {
-            link.addEventListener("click", () => {
-                navLinks.classList.remove("open");
-                menuToggle.textContent = "[ menu ]";
-            });
+            link.addEventListener("click", () => closeMenu());
+        });
+
+        document.addEventListener("click", (event) => {
+            const target = event.target;
+
+            if (
+                target instanceof Node &&
+                !navLinks.contains(target) &&
+                !menuToggle.contains(target)
+            ) {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && navLinks.classList.contains("open")) {
+                closeMenu(true);
+            }
         });
     }
 
@@ -57,18 +88,28 @@ const links = [
     const root = document.documentElement;
 
     if (themeToggle) {
-        themeToggle.textContent = `[${root.dataset.theme}]`;
+        const updateThemeButton = () => {
+            const currentTheme = root.dataset.theme;
+            const nextTheme = currentTheme === "light" ? "dark" : "light";
+
+            themeToggle.textContent = `[${currentTheme}]`;
+            themeToggle.setAttribute(
+                "aria-label",
+                `Switch to ${nextTheme} theme`,
+            );
+        };
+
+        updateThemeButton();
+
         themeToggle.addEventListener("click", () => {
-            // add theme switch class to root for transition animation
             root.classList.add("theme-switch");
 
-            // handle theme switch
             const theme = root.dataset.theme === "light" ? "dark" : "light";
             root.dataset.theme = theme;
             localStorage.setItem("theme", theme);
-            themeToggle.textContent = `[${theme}]`;
 
-            // remove theme switch class after animation is over (timeout matches global css rule)
+            updateThemeButton();
+
             setTimeout(() => {
                 root.classList.remove("theme-switch");
             }, 500);
@@ -99,7 +140,8 @@ const links = [
             animation: blink 1s steps(2, start) infinite;
         }
 
-        &:hover {
+        &:hover,
+        &:focus-visible {
             border-color: var(--accent1);
             background: var(--accent1);
             color: var(--panel);
@@ -132,7 +174,8 @@ const links = [
             padding: 0.9rem 1.5rem;
             border-top: 2px dashed var(--line);
 
-            &:hover {
+            &:hover,
+            &:focus-visible {
                 background: var(--accent1);
                 color: var(--panel);
                 border-color: var(--accent1);
@@ -160,7 +203,8 @@ const links = [
             transform: none;
             box-shadow: none;
 
-            &:hover {
+            &:hover,
+            &:focus-visible {
                 border-color: var(--accent2);
             }
         }
@@ -190,7 +234,8 @@ const links = [
                 padding: 0.2rem 0.8rem;
                 border: 2px solid transparent;
 
-                &:hover {
+                &:hover,
+                &:focus-visible {
                     border-color: var(--accent2);
                     background: transparent;
                     color: var(--accent2);
@@ -214,6 +259,12 @@ const links = [
                     content: none;
                 }
             }
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .brand::after {
+            animation: none;
         }
     }
 </style>
