@@ -1,33 +1,52 @@
 ---
 const { title } = Astro.props;
+const contentId = `window-content-${crypto.randomUUID()}`;
 ---
 
-<div class="window">
+<div class="window" data-title={title}>
     <div class="titlebar">
         <span>{title}</span>
-        <button class="toggle">[_]</button>
+        <button
+            class="toggle"
+            type="button"
+            aria-expanded="true"
+            aria-controls={contentId}
+            aria-label={`Collapse ${title}`}
+        >
+            [-]
+        </button>
     </div>
-    <div class="content">
+    <div class="content" id={contentId}>
         <slot />
     </div>
 </div>
 
 <script>
-    document.querySelectorAll<HTMLElement>(".window").forEach((window) => {
-        const toggle = window.querySelector<HTMLButtonElement>(".toggle");
-        const content = window.querySelector<HTMLDivElement>(".content");
+    document
+        .querySelectorAll<HTMLElement>(".window")
+        .forEach((windowElement) => {
+            const toggle =
+                windowElement.querySelector<HTMLButtonElement>(".toggle");
+            const content =
+                windowElement.querySelector<HTMLDivElement>(".content");
+            const title = windowElement.dataset.title ?? "window";
 
-        if (!toggle || !content) return;
+            if (!toggle || !content) return;
 
-        toggle.addEventListener("click", () => {
-            const isCollapsing = !content.classList.contains("collapsed");
+            toggle.addEventListener("click", () => {
+                const isCollapsing = !content.classList.contains("collapsed");
 
-            window.style.width = isCollapsing ? "100%" : "";
+                windowElement.style.width = isCollapsing ? "100%" : "";
+                content.classList.toggle("collapsed");
 
-            content.classList.toggle("collapsed");
-            toggle.textContent = isCollapsing ? "[+]" : "[-]";
+                toggle.textContent = isCollapsing ? "[+]" : "[-]";
+                toggle.setAttribute("aria-expanded", String(!isCollapsing));
+                toggle.setAttribute(
+                    "aria-label",
+                    `${isCollapsing ? "Expand" : "Collapse"} ${title}`,
+                );
+            });
         });
-    });
 </script>
 
 <style>
@@ -43,7 +62,8 @@ const { title } = Astro.props;
         box-shadow: none;
         padding: 0;
 
-        &:hover {
+        &:hover,
+        &:focus-visible {
             transform: none;
             background-color: var(--accent1);
         }
@@ -56,6 +76,25 @@ const { title } = Astro.props;
         color: var(--bg);
         border: 3px solid var(--border);
         box-shadow: 7px 7px 0 var(--shadow);
+
+        &:has(.content.collapsed) {
+            background: transparent;
+            border-color: transparent;
+            box-shadow: none;
+
+            .titlebar {
+                position: relative;
+                outline: 3px solid var(--border);
+                box-shadow: 7px 7px 0 var(--shadow);
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    inset: -3px;
+                    box-shadow: 7px 7px 0 var(--shadow);
+                    pointer-events: none;
+                }
+            }
     }
 
     .content {
@@ -65,26 +104,6 @@ const { title } = Astro.props;
 
         &.collapsed {
             display: none;
-        }
-    }
-
-    .window:has(.content.collapsed) {
-        background: transparent;
-        border-color: transparent;
-        box-shadow: none;
-
-        .titlebar {
-            position: relative;
-            outline: 3px solid var(--border);
-            box-shadow: 7px 7px 0 var(--shadow);
-
-            &::after {
-                content: "";
-                position: absolute;
-                inset: -3px;
-                box-shadow: 7px 7px 0 var(--shadow);
-                pointer-events: none;
-            }
         }
     }
 </style>
