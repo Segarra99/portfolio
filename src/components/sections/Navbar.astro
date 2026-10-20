@@ -92,6 +92,9 @@ const links = [
         ".theme-toggle button",
     );
     const root = document.documentElement;
+    const themeColor = document.querySelector<HTMLMetaElement>(
+        'meta[name="theme-color"]',
+    );
 
     if (themeToggle) {
         const updateThemeButton = () => {
@@ -103,6 +106,12 @@ const links = [
                 "aria-label",
                 `Switch to ${nextTheme} theme`,
             );
+
+            const panelColor = getComputedStyle(document.documentElement)
+                .getPropertyValue("--panel")
+                .trim();
+
+            themeColor?.setAttribute("content", panelColor);
         };
 
         updateThemeButton();

@@ -34,10 +34,7 @@ const ogImage = new URL(image, Astro.site);
         {noindex && <meta name="robots" content="noindex" />}
         {!noindex && <link rel="canonical" href={canonical} />}
 
-        <meta property="og:type" content="profile" />
-        <meta property="profile:first_name" content="Manuel" />
-        <meta property="profile:last_name" content="Segarra" />
-
+        <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:site_name" content="Manuel Segarra" />
         <meta property="og:description" content={description} />
@@ -46,7 +43,11 @@ const ogImage = new URL(image, Astro.site);
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={imageAlt} />
+
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@segarra_99" />
+
+        <meta name="theme-color" content="#181a24" />
 
         <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
         <link rel="icon" href="/icons/favicon.ico" sizes="32x32" />
