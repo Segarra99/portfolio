@@ -31,12 +31,20 @@ const ogImage = new URL(image, Astro.site);
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="author" content="Manuel Segarra" />
+
         {noindex && <meta name="robots" content="noindex" />}
         {!noindex && <link rel="canonical" href={canonical} />}
 
+        <meta name="theme-color" content="#181a24" />
+
+        <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/icons/favicon.ico" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+
+        <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={title} />
         <meta property="og:site_name" content="Manuel Segarra" />
+        <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         {!noindex && <meta property="og:url" content={canonical} />}
         <meta property="og:image" content={ogImage} />
@@ -45,21 +53,59 @@ const ogImage = new URL(image, Astro.site);
         <meta property="og:image:alt" content={imageAlt} />
 
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image:alt" content={imageAlt} />
         <meta name="twitter:creator" content="@segarra_99" />
-
-        <meta name="theme-color" content="#181a24" />
-
-        <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/icons/favicon.ico" sizes="32x32" />
-        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <meta name="twitter:site" content="@segarra_99" />
 
         <link
             rel="preload"
             href="/fonts/scientifica.woff2"
             as="font"
             type="font/woff2"
-            crossorigin=""
+            crossorigin
         />
+
+        {!noindex && (
+            <script
+                type="application/ld+json"
+                set:html={JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "ProfilePage",
+                    name: title,
+                    description,
+                    url: canonical,
+                    image: ogImage,
+                    author: {
+                        "@type": "Person",
+                        name: "Manuel Segarra",
+                        url: canonical,
+                    },
+                    mainEntity: {
+                        "@type": "Person",
+                        name: "Manuel Segarra",
+                        jobTitle: "Software Engineer",
+                        url: canonical,
+                        sameAs: [
+                            "https://github.com/segarra99",
+                            "https://linkedin.com/in/manuel-segarra",
+                        ],
+                        knowsAbout: [
+                            "Software Engineering",
+                            "Backend Development",
+                            "Frontend Development",
+                            "Cloud Computing",
+                        ],
+                        worksFor: {
+                            "@type": "Organization",
+                            name: "Devoteam",
+                        },
+                    },
+                })}
+            />
+        )}
 
         <script is:inline>
             let theme = "dark";
