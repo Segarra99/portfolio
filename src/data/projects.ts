@@ -1,7 +1,7 @@
 export type Project = {
     title: string;
     description: string;
-    image: string;
+    media: string;
     technologies: string[];
     code?: string;
     live?: string;
@@ -13,7 +13,7 @@ export const projects: Project[] = [
         title: "Flabet",
         description:
             "Backend for Flamengo FC's iGaming platform. Payments, sportsbook, casino games, facial-recognition auth and 2FA. Shipped in 6 months.",
-        image: "images/projects/flabet.png",
+        media: "media/projects/flabet.webp",
         technologies: ["NestJS", "PostgreSQL", "AWS", "Docker", "Redis"],
         live: "https://flabet-br.org",
     },
@@ -21,7 +21,7 @@ export const projects: Project[] = [
         title: "Connected Music",
         description:
             "Spotify integration inside BMW and Rolls-Royce infotainment systems. Owned releases and deployment pipelines.",
-        image: "images/projects/connected-music.png",
+        media: "media/projects/connected-music.webp",
         technologies: ["TypeScript", "GitHub", "Python", "Linux", "Kanban"],
         product: "https://bmw.co.uk/en/shop/ls/dp/Base_Connected_Music_gb",
     },
@@ -29,7 +29,7 @@ export const projects: Project[] = [
         title: "Trip Planner",
         description:
             "Web application that generates travel routes based on origin, destination, and user-selected points of interest.",
-        image: "images/projects/trip-planner.png",
+        media: "media/projects/trip-planner.webp",
         technologies: [
             "Ruby",
             "Ruby on Rails",
@@ -43,7 +43,7 @@ export const projects: Project[] = [
         title: "Odds Feed Risk Guard",
         description:
             "Node.js service that processes real-time sports odds, validating incoming data to prevent inconsistent or incorrect odds from reaching downstream consumers and trading systems.",
-        image: "images/projects/odds-feed-risk-guard.gif",
+        media: "media/projects/odds-feed-risk-guard.webm",
         technologies: ["WebSockets", "Typescript", "Zod", "npm"],
         code: "https://github.com/segarra99/odds-feed-risk-guard.git",
     },
