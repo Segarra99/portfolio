@@ -41,6 +41,8 @@ export const experiences: Experience[] = [
             "Designed and built Flabet, Flamengo FC's iGaming platform backend from scratch using TypeScript, NestJS, PostgreSQL, and AWS.",
             "Integrated external providers for casino games, sportsbook, payments, and authentication, including facial recognition and two-factor authentication.",
             "Implemented idempotency and concurrency safeguards to prevent duplicate transactions and race conditions in account operations.",
+            "Designed database schemas and managed migrations to support evolving platform requirements across development and production environments.",
+            "Optimized PostgreSQL queries and database access patterns to improve endpoint performance and efficiency.",
         ],
     },
     {
