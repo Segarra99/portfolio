@@ -1,0 +1,16 @@
+{
+    "name": "Manuel Segarra | Software Engineer",
+    "short_name": "Manuel Segarra",
+    "description": "Software engineer working across backend, cloud and frontend.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#181a24",
+    "theme_color": "#181a24",
+    "icons": [
+        {
+            "src": "/icons/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ]
+}
